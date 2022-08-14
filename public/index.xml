@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>My New Hugo Site</title>
+    <link>http://example.org/</link>
+    <description>Recent content on My New Hugo Site</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 14 Aug 2022 13:43:18 +0000</lastBuildDate><atom:link href="http://example.org/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Example CMS content</title>
+      <link>http://example.org/blog/2022-08-14-example-cms-content/</link>
+      <pubDate>Sun, 14 Aug 2022 13:43:18 +0000</pubDate>
+      
+      <guid>http://example.org/blog/2022-08-14-example-cms-content/</guid>
+      <description>No snowflake in an avalanche ever feels responsible
+Stanislaw Jerzy Lec
+In all my wild mountaineering, I have enjoyed only one avalanche ride; and the start was so sudden, and the end came so soon, I thought but little of the danger that goes with this sort of travel, though one thinks fast at such times.
+John Muir</description>
+    </item>
+    
+  </channel>
+</rss>
