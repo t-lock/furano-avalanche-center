@@ -1,5 +1,5 @@
 ---
-title: Example CMS content
+title: Example CMS content!
 date: 2022-08-14T13:43:18.816Z
 description: This is just a test
 testimonials:
