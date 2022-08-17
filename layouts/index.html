@@ -1,0 +1,16 @@
+{{ define "main" }}
+
+<header>
+  <h1>Welcome to Furano Avalanche Center 🏔</h1>
+</header>
+<main>
+  <ul>
+    {{ range.Pages }}
+    <li>
+      <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+    </li>
+    {{ end }}
+  </ul>
+</main>
+
+{{ end }}

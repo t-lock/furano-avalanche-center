@@ -1,3 +1,11 @@
-{{ partial "header.html" . -}}
-<header><h1>{{ .Title }}</h1></header>
-<article>{{ .Content -}} {{ partial "footer.html" . }}</article>
+{{ define "main" }}
+
+{{ with .Title }}
+<header>
+  <h1>{{ . }}</h1>
+</header>
+{{ end }}
+
+{{ with .Content }}{{ . }}{{ end }}
+
+{{ end }}

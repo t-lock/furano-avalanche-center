@@ -1,0 +1,14 @@
+{{ define "main" }}
+
+<header>
+  <h1>{{ .Title }}</h1>
+</header>
+<article>{{ .Content }}</article>
+
+<p>Issued: {{ .Date.Format "02 January, 2006" }}</p>
+
+{{ if .ExpiryDate }}
+<p>Valid until: {{ .ExpiryDate.Format "02 January, 2006" }}</p>
+{{ end }}
+
+{{ end }}

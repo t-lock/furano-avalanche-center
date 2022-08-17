@@ -1,3 +1,4 @@
-baseURL = 'http://example.org/'
+baseURL = 'https://furano-avalanche-center.netlify.app'
 languageCode = 'en-us'
-title = 'My New Hugo Site'
+title = 'Furano Avalanche Center'
+buildExpired = true
