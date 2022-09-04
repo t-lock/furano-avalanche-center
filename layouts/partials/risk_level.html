@@ -1,3 +1,3 @@
 {{ $number := . }}
-{{ $name := (index site.Data.levels $number).name }}
+{{ $name := (index site.Data.risk_levels $number).name }}
 <span>{{ $number }} {{ $name }}</span>

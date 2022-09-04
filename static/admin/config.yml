@@ -4,28 +4,30 @@ backend:
 media_folder: static/img
 public_folder: /img
 collections:
-  - name: forecasts
-    label: Forecasts
-    identifier_field: date
+  - name: forecast
+    label: Forecast
+    format: yaml-frontmatter
+    identifier_field: description
     folder: content/forecasts
     create: true
     slug: "{{year}}-{{month}}-{{day}}"
     editor:
       preview: false
-    format: yaml-frontmatter
     fields:
       - name: type
         widget: hidden
         default: forecasts
+      - name: draft
+        widget: hidden
+        default: false
       - label: Publish Date
         name: date
         widget: datetime
       - label: Overall Risk Level
         name: overall_risk
         widget: select
-        default: -1
+        required: false
         options: &risk_levels
-          - { label: Select..., value: -1 }
           - { label: 0 | No Rating, value: "0" }
           - { label: 1 | Low, value: "1" }
           - { label: 2 | Moderate, value: "2" }
@@ -39,19 +41,61 @@ collections:
       - label: Risk Level by Elevation
         name: elevation_risk
         widget: object
+        collapsed: true
+        hint: Will only display if a selection is made for all three.
         fields:
           - label: Alpine
             name: alpine
             widget: select
-            default: -1
             options: *risk_levels
+            required: false
           - label: Tree Line
             name: tree_line
             widget: select
-            default: -1
             options: *risk_levels
+            required: false
           - label: Below Tree Line
             name: below_tree_line
             widget: select
-            default: -1
             options: *risk_levels
+            required: false
+      - label: Avalanche Problems
+        name: avalanche_problems
+        widget: list
+        allow_add: true
+        collapsed: true
+        summary: "{{fields.problem}}"
+        label_singular: "avalanche problem"
+        default: []
+        fields:
+          - label: Problem Type
+            name: problem
+            widget: select
+            options:
+              - Dry Loose
+              - Storm Slab
+              - Wind Slab
+              - Persistent Slab
+              - Deep Persistent Slab
+              - Wet Loose
+              - Wet Slab
+              - Cornice Fall
+              - Glide
+          - label: Description
+            name: description
+            widget: text
+            hint: Why this specific avalanche problem is a current risk
+          - label: Trend
+            name: trend
+            widget: select
+            default: "Select..."
+            options:
+              - Select...
+              - Increasing
+              - Decreasing
+              - Staying the same
+            required: false
+          - label: Dangerous Aspects
+            name: rose
+            widget: rose
+            required: false
