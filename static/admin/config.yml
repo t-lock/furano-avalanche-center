@@ -4,44 +4,50 @@ backend:
 media_folder: static/img
 public_folder: /img
 collections:
-  - name: "blog"
-    label: "Blog"
-    folder: "content/blog"
+  - name: forecasts
+    label: Forecasts
+    folder: content/forecasts
     create: true
-    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    slug: "{{year}}-{{month}}-{{day}}"
     editor:
-      preview: true
+      preview: false
     format: yaml-frontmatter
     fields:
-      - label: "Title"
-        name: "title"
-        widget: "string"
-      - label: "Publish Date"
-        name: "date"
-        widget: "datetime"
-      - label: "Description"
-        name: "description"
-        widget: "string"
-      - label: "Testimonials"
-        name: "testimonials"
-        widget: "list"
-        summary: "{{fields.quote}} - {{fields.author.name}}"
+      - label: Publish Date
+        name: date
+        widget: datetime
+      - label: Overall Risk Level
+        name: overall_risk
+        widget: select
+        default: -1
+        options: &risk_levels
+          - { label: Select..., value: -1 }
+          - { label: 0 | No Rating, value: "0" }
+          - { label: 1 | Low, value: "1" }
+          - { label: 2 | Moderate, value: "2" }
+          - { label: 3 | Considerable, value: "3" }
+          - { label: 4 | High, value: "4" }
+          - { label: 5 | Extreme, value: "5" }
+      - label: Post Content
+        name: post
+        hint: Observations, overview, etc. Your "free-form" content for this post.
+        widget: markdown
+      - label: Risk Level by Elevation
+        name: elevation_risk
+        widget: object
         fields:
-          - label: Quote
-            name: quote
-            widget: string
-            default: "Everything is awesome!"
-          - label: Author
-            name: author
-            widget: object
-            fields:
-              - { label: Name, name: name, widget: string, default: "Emmet" }
-              - {
-                  label: Avatar,
-                  name: avatar,
-                  widget: image,
-                  default: "/img/tlock.png",
-                }
-      - label: "Body"
-        name: "body"
-        widget: "markdown"
+          - label: Alpine
+            name: alpine
+            widget: select
+            default: -1
+            options: *risk_levels
+          - label: Tree Line
+            name: tree_line
+            widget: select
+            default: -1
+            options: *risk_levels
+          - label: Below Tree Line
+            name: below_tree_line
+            widget: select
+            default: -1
+            options: *risk_levels
