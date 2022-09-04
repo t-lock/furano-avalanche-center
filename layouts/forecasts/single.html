@@ -7,12 +7,10 @@
     {{ end }}
 
     {{ with .Params.post }}
-      <div>{{ . }}</div>
+      <div>{{ . | markdownify}}</div>
     {{ end }}
 
-    {{ if .ExpiryDate }}
-      <p>Valid until: {{ .ExpiryDate.Format "02 January, 2006" }}</p>
-    {{ end }}
+    <p>Valid until: {{ (.Date.AddDate 0 0 1).Format "02 January, 2006" }}</p>
   </header>
 
   {{ with .Params.elevation_risk }}
