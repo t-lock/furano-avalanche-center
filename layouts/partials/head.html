@@ -6,7 +6,7 @@
 
     {{ else if and (isset .Params "type") (eq .Type "forecasts") }}
     {{/*  Forecasts  */}}
-    Avalanche Forecast for {{ .Date.Format "02 Jan 2006" }} | {{ .Site.Title }}
+    Avalanche forecast for {{ .Date.Format "02 Jan 2006" }} | {{ .Site.Title }}
 
     {{ else }}
     {{/*  Pages  */}}

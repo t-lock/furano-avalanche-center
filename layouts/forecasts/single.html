@@ -1,14 +1,28 @@
 {{ define "main" }}
+  <header style="border: 1px solid lightgray">
+    <h1>{{ .Date.Format "02 January, 2006" }}</h1>
 
-<header>
-  <h1>{{ .Title }}</h1>
-</header>
-<article>{{ .Content }}</article>
+    {{ with .Params.overall_risk }}
+      <h2>Overall: {{ partial "risk_level" . }}</h2>
+    {{ end }}
 
-<p>Issued: {{ .Date.Format "02 January, 2006" }}</p>
+    {{ with .Params.post }}
+      <div>{{ . }}</div>
+    {{ end }}
 
-{{ if .ExpiryDate }}
-<p>Valid until: {{ .ExpiryDate.Format "02 January, 2006" }}</p>
-{{ end }}
+    {{ if .ExpiryDate }}
+      <p>Valid until: {{ .ExpiryDate.Format "02 January, 2006" }}</p>
+    {{ end }}
+  </header>
+
+  {{ with .Params.elevation_risk }}
+    {{ if and (.alpine) (.tree_line) (.below_tree_line) }}
+      <div style="border: 1px solid lightgray">
+        <p>Alpine: {{ partial "risk_level" .alpine }}</p>
+        <p>Tree Line: {{ partial "risk_level" .tree_line }}</p>
+        <p>Below Tree Line: {{ partial "risk_level" .below_tree_line }}</p>
+      </div>
+    {{ end }}
+  {{ end }}
 
 {{ end }}

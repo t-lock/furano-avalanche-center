@@ -6,6 +6,7 @@ public_folder: /img
 collections:
   - name: forecasts
     label: Forecasts
+    identifier_field: date
     folder: content/forecasts
     create: true
     slug: "{{year}}-{{month}}-{{day}}"
@@ -13,6 +14,9 @@ collections:
       preview: false
     format: yaml-frontmatter
     fields:
+      - name: type
+        widget: hidden
+        default: forecasts
       - label: Publish Date
         name: date
         widget: datetime
