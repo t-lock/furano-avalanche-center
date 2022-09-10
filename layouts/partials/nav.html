@@ -1,17 +1,21 @@
-<nav>
+<nav style="display:flex; align-items: baseline; margin-bottom: 20px;">
   {{ with .Site.GetPage "/" }}
-  <a href="{{ .RelPermalink }}">Home</a>
+    <a
+      href="{{ .RelPermalink }}"
+      style="color: black; width: 150px; margin-right: 20px"
+    >
+      {{ partial "graphics/logo.svg" . }}
+    </a>
   {{ end }}
   {{ with .Site.GetPage "/forecasts" }}
-  <span> | </span>
-  <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+    <a href="{{ .RelPermalink }}">{{ .Title }}</a>
   {{ end }}
   {{ with .Site.GetPage "/about" }}
-  <span> | </span>
-  <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+    <span> | </span>
+    <a href="{{ .RelPermalink }}">{{ .Title }}</a>
   {{ end }}
   {{ with .Site.GetPage "/support-us" }}
-  <span> | </span>
-  <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+    <span> | </span>
+    <a href="{{ .RelPermalink }}">{{ .Title }}</a>
   {{ end }}
 </nav>
