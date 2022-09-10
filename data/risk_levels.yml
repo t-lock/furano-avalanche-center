@@ -1,19 +1,30 @@
 0:
   name: No Rating
   advice: Insufficient information to establish avalanche danger rating.
+  color: "#D8D8D8"
+  img: "/img/scale/0.png"
 1:
   name: Low
   advice: Generally safe avalanche conditions. Watch unstable snow on isolated terrain features.
+  color: "#54BB51"
+  img: "/img/scale/1.png"
 2:
   name: Moderate
   advice: Heightened avalanche conditions on specific terrain features. Evaluate snow and terrain carefully; identity features of concern.
+  color: "#FFF41F"
+  img: "/img/scale/2.png"
 3:
   name: Considerable
   advice: Dangerous avalanche conditions. Careful snow pack evaluation, cautious route-finding and conservative decision-making essential.
+  color: "#F8972C"
+  img: "/img/scale/3.png"
 4:
   name: High
   advice: Very dangerous avalanche conditions. Travel in avalanche terrain not recommended.
+  color: "#EF2B2F"
+  img: "/img/scale/4-5.png"
 5:
   name: Extreme
   advice: Avoid all avalanche terrain.
-                                                                                                                    |
+  color: "#000000"
+  img: "/img/scale/4-5.png"

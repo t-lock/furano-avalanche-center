@@ -1,0 +1,30 @@
+{{$color := (index site.Data.risk_levels .risk).color}}
+{{$alp_fill := cond (eq .zone "alp") $color "white"}}
+{{$trl_fill := cond (eq .zone "trl") $color "white"}}
+{{$btl_fill := cond (eq .zone "btl") $color "white"}}
+
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+  viewBox="0 0 232 200" enable-background="new 0 0 232 200" xml:space="preserve" class="altitude-danger-indicator">
+  {{/* Alpine */}}
+  <g>
+    <polygon stroke="#B8B8B8" fill="{{$alp_fill}}" stroke-miterlimit="10"
+      points="151.312,49.786 132.889,84.314 141.225,99.303 174.463,92.535 "></polygon>
+    <polygon stroke="#B8B8B8" fill="{{$alp_fill}}" stroke-miterlimit="10"
+      points="97.862,18.675 54.189,100.522 132.889,84.314 ">
+    </polygon>
+  </g>
+  {{/* Tree Line */}}
+  <g>
+    <polygon stroke="#B8B8B8" fill="{{$trl_fill}}" stroke-miterlimit="10"
+      points="174.463,92.535 141.225,99.303 166.603,146.918 199.654,139.749 "></polygon>
+    <polygon stroke="#B8B8B8" fill="{{$trl_fill}}" stroke-miterlimit="10"
+      points="132.889,84.314 54.189,100.522 25.854,153.624 159.725,134.607 "></polygon>
+  </g>
+  {{/* Below Tree Line */}}
+  <g>
+    <polygon stroke="#B8B8B8" fill="{{$btl_fill}}" stroke-miterlimit="10"
+      points="166.603,146.918 186.727,185.212 223.575,185.212 199.654,139.749 "></polygon>
+    <polygon stroke="#B8B8B8" fill="{{$btl_fill}}" stroke-miterlimit="10"
+      points="25.854,153.624 8.999,185.212 186.727,185.212 159.725,134.607 "></polygon>
+  </g>
+</svg>

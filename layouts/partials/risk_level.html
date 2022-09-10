@@ -1,3 +1,4 @@
 {{ $number := . }}
-{{ $name := (index site.Data.risk_levels $number).name }}
-<span>{{ $number }} {{ $name }}</span>
+{{ $data := index site.Data.risk_levels $number}}
+{{ $foreground := cond (or (eq "0" $number) (eq "2" $number)) "black" "white"}}
+<span style="color: {{$foreground}}; background: {{$data.color}}">{{ $number }} {{ $data.name }}</span>
