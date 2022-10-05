@@ -25,9 +25,8 @@
   {{ with .Params.elevation_risk }}
     {{ if and (.alpine) (.tree_line) (.below_tree_line) }}
       <div style="border: 1px solid lightgray">
-        <h3>Avalanche danger by elevation</h3>
         <div style="display:flex; align-items: center">
-          <h4 style="width: 115px">Alpine</h4>
+          <h3 style="width: 150px">Alpine</h3>
           <img
             style="width: 100px; height: auto;"
             src="{{ (index $risk_levels .alpine).img }}"
@@ -41,15 +40,14 @@
             <p>{{ (index $risk_levels .alpine).advice }}</p>
           </div>
         </div>
-
+        <hr />
         <div style="display:flex; align-items: center">
-          <h4 style="width: 115px">Tree Line</h4>
+          <h3 style="width: 150px">Tree Line</h3>
           <img
             style="width: 100px; height: auto;"
             src="{{ (index $risk_levels .tree_line).img }}"
             alt="Tree line risk level: {{ .tree_line }}"
           />
-
           <figure style="width: 200px">
             {{ partial "graphics/elevation_risk.svg" (dict "zone" "trl" "risk" .tree_line) }}
           </figure>
@@ -58,8 +56,9 @@
             <p>{{ (index $risk_levels .tree_line).advice }}</p>
           </div>
         </div>
+        <hr />
         <div style="display:flex; align-items: center">
-          <h4 style="width: 115px">Below Tree Line</h4>
+          <h3 style="width: 150px">Below Tree Line</h3>
           <img
             style="width: 100px; height: auto;"
             src="{{ (index $risk_levels .below_tree_line).img }}"
@@ -79,18 +78,53 @@
 
   {{ with .Params.avalanche_problems }}
     <div style="border: 1px solid lightgray">
-      <h3>Avalanche Problems</h3>
       {{ range $i, $node := . }}
-        {{ $imgpath := (index site.Data.avalanche_problems "Cornice Fall").img }}
+        {{ $imgpath := (index site.Data.avalanche_problems $node.problem).img }}
+
+        {{ if (gt $i 0) }}
+          <hr />
+        {{ end }}
+
+
         <div>
-          <h4>Avalanche Problem #{{ add 1 $i }}: {{ $node.problem }}</h4>
+          <h3>Avalanche Problem #{{ add 1 $i }}: {{ $node.problem }}</h3>
           <img src="{{ $imgpath }}" alt="{{ $node.problem }}" />
           {{ with $node.description }}
             <div style="padding: 10px; background: #eee">
+              <strong>Description</strong>
               <p>{{ . }}</p>
             </div>
           {{ end }}
-          {{ with $node.trend }}<p>Trend: {{ $node.trend }}</p>{{ end }}
+          {{ with $node.trend }}
+            <div style="padding: 10px">
+              <strong>Trend</strong>
+              <p>{{ . }}</p>
+            </div>
+          {{ end }}
+          {{ with $node.rose }}
+            <div style="padding: 10px">
+              <strong>Dangerous Aspects</strong>
+              <p>[rose here]</p>
+            </div>
+          {{ end }}
+          {{ with $node.time }}
+            <div style="padding: 10px">
+              <strong>Time of Day</strong>
+              <p>{{ . }}</p>
+            </div>
+          {{ end }}
+          {{ with $node.likelihood }}
+            <div style="padding: 10px">
+              <strong>Likelihood</strong>
+              <p>[bar here]</p>
+            </div>
+          {{ end }}
+          {{ with $node.size }}
+            <div style="padding: 10px">
+              <strong>Size</strong>
+              <p>[bar here]</p>
+            </div>
+          {{ end }}
         </div>
       {{ end }}
     </div>

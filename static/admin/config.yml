@@ -12,7 +12,7 @@ collections:
     create: true
     slug: "{{year}}-{{month}}-{{day}}"
     editor:
-      preview: false
+      preview: true
     fields:
       - name: type
         widget: hidden
@@ -83,14 +83,12 @@ collections:
               - Glide
           - label: Description
             name: description
-            widget: text
+            widget: markdown
             hint: Why this specific avalanche problem is a current risk
           - label: Trend
             name: trend
             widget: select
-            default: "Select..."
             options:
-              - Select...
               - Increasing
               - Decreasing
               - Staying the same
@@ -99,3 +97,50 @@ collections:
             name: rose
             widget: rose
             required: false
+            default:
+              b1: false
+              b2: false
+              b3: false
+              b4: false
+              b5: false
+              b6: false
+              b7: false
+              b8: false
+              t1: false
+              t2: false
+              t3: false
+              t4: false
+              t5: false
+              t6: false
+              t7: false
+              t8: false
+              a1: false
+              a2: false
+              a3: false
+              a4: false
+              a5: false
+              a6: false
+              a7: false
+              a8: false
+          - label: Time of Day
+            name: time
+            widget: string
+            default: All Day
+          - label: Likelihood
+            name: likelihood
+            widget: select
+            options:
+              - Unlikely
+              - Possible
+              - Likely
+              - Very Likely
+              - Almost Certain
+          - label: Size
+            name: size
+            widget: select
+            options:
+              - "1"
+              - "2"
+              - "3"
+              - "4"
+              - "5"

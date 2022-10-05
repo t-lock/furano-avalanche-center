@@ -1,7 +1,21 @@
 {
   "name": "furano-avalanche-center",
+  "scripts": {
+    "cms-watch": "parcel watch resources/_gen/cms/cms.js --dist-dir static/admin",
+    "cms-build": "parcel build resources/_gen/cms/cms.js --dist-dir static/admin"
+  },
   "dependencies": {
+    "react": "^18.2.0"
+  },
+  "devDependencies": {
+    "parcel": "^2.7.0",
     "prettier": "^2.7.1",
-    "prettier-plugin-go-template": "^0.0.13"
+    "prettier-plugin-go-template": "^0.0.13",
+    "process": "^0.11.10"
+  },
+  "alias": {
+    "netlify-cms": {
+      "global": "CMS"
+    }
   }
 }
