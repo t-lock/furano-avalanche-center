@@ -115,6 +115,7 @@ collections:
               a7: false
               a8: false
       - label: "Screenshots / Photos"
+        required: false
         name: "screenshots"
         widget: "list"
         summary: "{{fields.image}}"
