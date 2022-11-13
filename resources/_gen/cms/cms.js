@@ -1,8 +1,6 @@
 import { RoseControl } from "./Rose";
-import { SimplePreview } from "./Simple";
-import { setTitle } from "./setTitle";
 
-CMS.registerWidget("rose", RoseControl, SimplePreview);
+CMS.registerWidget("rose", RoseControl);
 
 CMS.registerEventListener({
   name: "preSave",

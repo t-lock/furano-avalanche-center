@@ -93,31 +93,8 @@ collections:
             name: rose
             widget: rose
             required: false
-            default:
-              b1: false
-              b2: false
-              b3: false
-              b4: false
-              b5: false
-              b6: false
-              b7: false
-              b8: false
-              t1: false
-              t2: false
-              t3: false
-              t4: false
-              t5: false
-              t6: false
-              t7: false
-              t8: false
-              a1: false
-              a2: false
-              a3: false
-              a4: false
-              a5: false
-              a6: false
-              a7: false
-              a8: false
+            default: ""
+            hint: Click to toggle section
       - label: "Screenshots / Photos"
         required: false
         name: "screenshots"

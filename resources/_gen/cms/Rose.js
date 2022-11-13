@@ -1,6 +1,27 @@
 export const RoseControl = (props) => {
+  const blue = "#0095bc";
+  let value = props.value.split(",").filter((node) => node.length);
+
+  function flip(polygon) {
+    const id = polygon.dataset.id;
+
+    if (polygon.getAttribute("fill")) {
+      value = value.filter((node) => node !== id);
+    } else {
+      value = [...value, id];
+    }
+    props.onChange(value.join(","));
+  }
+
+  function handleClick(e) {
+    const polygon = e.target.closest("polygon");
+    if (polygon) {
+      flip(polygon);
+    }
+  }
+
   return (
-    <svg viewBox="25 15 250 165">
+    <svg viewBox="25 15 250 165" onClick={handleClick}>
       <defs>
         <filter id="shadow">
           <feDropShadow
@@ -16,41 +37,49 @@ export const RoseControl = (props) => {
         <polygon
           stroke="#3a3a3a"
           data-id="b1"
+          fill={value.includes("b1") ? blue : ""}
           points="78.48,51.709 58.01,55.381 54.33,75.846 69.562,83.466 69.655,83.315 72.167,69.347 86.05,66.857 "
         ></polygon>
         <polygon
           stroke="#3a3a3a"
           data-id="b2"
+          fill={value.includes("b2") ? blue : ""}
           points="59.55,99.793 69.562,83.466 54.33,75.846 39.523,99.988 54.32,124.132 69.682,116.455 69.649,116.272 "
         ></polygon>
         <polygon
           stroke="#3a3a3a"
           data-id="b3"
+          fill={value.includes("b3") ? blue : ""}
           points="69.682,116.455 54.32,124.132 57.992,144.602 77.726,148.149 85.602,132.662 72.155,130.244 "
         ></polygon>
         <polygon
           stroke="#3a3a3a"
           data-id="b4"
+          fill={value.includes("b4") ? blue : ""}
           points="86.124,132.756 85.602,132.662 77.726,148.149 78.457,148.281 102.599,163.089 126.743,148.291 119.007,132.809 102.602,142.863 "
         ></polygon>
         <polygon
           stroke="#3a3a3a"
           data-id="b5"
+          fill={value.includes("b5") ? blue : ""}
           points="135.532,116.47 133.053,130.257 119.081,132.763 119.007,132.809 126.743,148.291 147.213,144.619 150.893,124.154 "
         ></polygon>
         <polygon
           stroke="#3a3a3a"
           data-id="b6"
+          fill={value.includes("b6") ? blue : ""}
           points="165.7,100.013 150.902,75.869 135.664,83.483 145.672,99.811 135.564,116.288 135.532,116.47 150.893,124.154 "
         ></polygon>
         <polygon
           stroke="#3a3a3a"
           data-id="b7"
+          fill={value.includes("b7") ? blue : ""}
           points="147.23,55.398 126.766,51.719 119.078,66.836 119.097,66.847 133.065,69.359 135.571,83.331 135.664,83.483 150.902,75.869 "
         ></polygon>
         <polygon
           stroke="#3a3a3a"
           data-id="b8"
+          fill={value.includes("b8") ? blue : ""}
           points="102.619,56.741 119.078,66.836 126.766,51.719 102.624,36.912 78.48,51.709 86.05,66.857 86.14,66.841 "
         ></polygon>
       </g>
@@ -58,45 +87,49 @@ export const RoseControl = (props) => {
         <polygon
           stroke="#3a3a3a"
           data-id="t1"
+          fill={value.includes("t1") ? blue : ""}
           points="85.112,82.386 93.095,80.955 86.05,66.857 72.167,69.347 69.655,83.315 69.562,83.466 83.605,90.492 83.677,90.375 "
         ></polygon>
         <polygon
           stroke="#3a3a3a"
           data-id="t2"
+          fill={value.includes("t2") ? blue : ""}
           points="77.897,99.798 83.605,90.492 69.562,83.466 59.55,99.793 69.649,116.272 69.682,116.455 83.712,109.444 83.673,109.223 "
         ></polygon>
         <polygon
           stroke="#3a3a3a"
           data-id="t3"
-          fill="#fff"
+          fill={value.includes("t3") ? blue : ""}
           points="83.712,109.444 69.682,116.455 72.155,130.244 85.602,132.662 92.759,118.588 85.106,117.213 "
         ></polygon>
         <polygon
           stroke="#3a3a3a"
           data-id="t4"
-          fill="#fff"
+          fill={value.includes("t4") ? blue : ""}
           points="93.095,118.648 92.759,118.588 85.602,132.662 86.124,132.756 102.602,142.863 119.007,132.809 111.935,118.656 102.518,124.428 "
         ></polygon>
         <polygon
           stroke="#3a3a3a"
           data-id="t5"
-          fill="#fff"
+          fill={value.includes("t5") ? blue : ""}
           points="121.343,109.371 119.932,117.219 111.941,118.652 111.935,118.656 119.007,132.809 119.081,132.763 133.053,130.257 135.532,116.47 "
         ></polygon>
         <polygon
           stroke="#3a3a3a"
           data-id="t6"
-          fill="#fff"
+          fill={value.includes("t6") ? blue : ""}
           points="135.664,83.483 121.485,90.568 127.148,99.808 121.368,109.23 121.343,109.371 135.532,116.47 135.564,116.288 145.672,99.811 "
         ></polygon>
         <polygon
           stroke="#3a3a3a"
           data-id="t7"
+          fill={value.includes("t7") ? blue : ""}
           points="119.938,82.393 121.372,90.383 121.485,90.568 135.664,83.483 135.571,83.331 133.065,69.359 119.097,66.847 119.078,66.836 111.91,80.932 111.95,80.957 "
         ></polygon>
         <polygon
           stroke="#3a3a3a"
           data-id="t8"
+          fill={value.includes("t8") ? blue : ""}
           points="102.527,75.177 111.91,80.932 119.078,66.836 102.619,56.741 86.14,66.841 86.05,66.857 93.095,80.955 93.103,80.953 "
         ></polygon>
       </g>
@@ -104,47 +137,49 @@ export const RoseControl = (props) => {
         <polygon
           stroke="#3a3a3a"
           data-id="a1"
+          fill={value.includes("a1") ? blue : ""}
           points="102.414,99.604 93.095,80.955 85.112,82.386 83.677,90.375 83.605,90.492 102.293,99.841 "
         ></polygon>
         <polygon
           stroke="#3a3a3a"
           data-id="a2"
-          fill="#fff"
+          fill={value.includes("a2") ? blue : ""}
           points="102.293,99.841 83.605,90.492 77.897,99.798 83.673,109.223 83.712,109.444 102.076,100.268 "
         ></polygon>
         <polygon
           stroke="#3a3a3a"
           data-id="a3"
-          fill="#fff"
+          fill={value.includes("a3") ? blue : ""}
           points="83.712,109.444 85.106,117.213 92.759,118.588 102.076,100.268 "
         ></polygon>
         <polygon
           stroke="#3a3a3a"
           data-id="a4"
-          fill="#fff"
+          fill={value.includes("a4") ? blue : ""}
           points="102.611,100 102.076,100.268 92.759,118.588 93.095,118.648 102.518,124.428 111.935,118.656 102.612,100.001 "
         ></polygon>
         <polygon
           stroke="#3a3a3a"
           data-id="a5"
-          fill="#fff"
+          fill={value.includes("a5") ? blue : ""}
           points="119.932,117.219 121.343,109.371 102.612,100.001 111.935,118.656 111.941,118.652 "
         ></polygon>
         <polygon
           stroke="#3a3a3a"
           data-id="a6"
-          fill="#fff"
+          fill={value.includes("a6") ? blue : ""}
           points="127.148,99.808 121.485,90.568 102.612,100 102.612,100.001 121.343,109.371 121.368,109.23 "
         ></polygon>
         <polygon
           stroke="#3a3a3a"
           data-id="a7"
-          fill="#fff"
+          fill={value.includes("a7") ? blue : ""}
           points="102.612,100 121.485,90.568 121.372,90.383 119.938,82.393 111.95,80.957 111.91,80.932 102.414,99.604 "
         ></polygon>
         <polygon
           stroke="#3a3a3a"
           data-id="a8"
+          fill={value.includes("a8") ? blue : ""}
           points="111.91,80.932 102.527,75.177 93.103,80.953 93.095,80.955 102.414,99.604 "
         ></polygon>
       </g>
