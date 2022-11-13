@@ -144,3 +144,22 @@ collections:
               - "3"
               - "4"
               - "5"
+      - label: "Screenshots / Photos"
+        name: "screenshots"
+        widget: "list"
+        summary: "{{fields.image}}"
+        default: []
+        fields:
+          - label: Image
+            name: image
+            widget: image
+          - label: Intro text
+            name: intro
+            required: false
+            widget: markdown
+            hint: Text about the image. This could be a paragraph explaining what you are looking at in a forecast screenshot, for example. It will be displayed before the image.
+          - label: Caption
+            name: caption
+            required: false
+            widget: string
+            hint: A short caption or source attribution for the image.

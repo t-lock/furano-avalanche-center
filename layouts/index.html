@@ -1,13 +1,13 @@
 {{ define "main" }}
-{{ $risk_levels := .Site.Data.risk_levels }}
+  {{ $risk_levels := .Site.Data.risk_levels }}
 
-<header>
-  <h1>Latest Post:</h1>
-</header>
-<main>
-  {{ range first 1 .Site.RegularPages }}
-    {{ partial "full_post" . }}
-  {{end}}
-</main>
 
+  <header>
+    <h1>Latest Post:</h1>
+  </header>
+  <main>
+    {{ range first 1 .Site.RegularPages }}
+      {{ partial "full_post" . }}
+    {{ end }}
+  </main>
 {{ end }}
