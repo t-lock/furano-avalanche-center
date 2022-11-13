@@ -2503,11 +2503,11 @@ process.umask = function() {
     return 0;
 };
 
-},{}],"de3Fj":[function(require,module,exports) {
+},{}],"eZ5dk":[function(require,module,exports) {
 "use strict";
 var global = arguments[3];
 var HMR_HOST = null;
-var HMR_PORT = 41855;
+var HMR_PORT = 1234;
 var HMR_SECURE = false;
 var HMR_ENV_HASH = "d6ea1d42532a7575";
 module.bundle.HMR_BUNDLE_ID = "bc338b8fc8a1e039";
@@ -2895,125 +2895,496 @@ function hmrAcceptRun(bundle, id) {
 },{}],"hfz1d":[function(require,module,exports) {
 var _rose = require("./Rose");
 var _simple = require("./Simple");
+var _setTitle = require("./setTitle");
 CMS.registerWidget("rose", (0, _rose.RoseControl), (0, _simple.SimplePreview));
+CMS.registerEventListener({
+    name: "preSave",
+    handler: (obj)=>{
+        console.log(obj);
+        console.log(obj.entry.get("data"));
+        return obj.entry.get("data").set("date_clone", "new title");
+    }
+});
 
-},{"./Simple":"6EWcX","./Rose":"bL2gw"}],"6EWcX":[function(require,module,exports) {
-var $parcel$ReactRefreshHelpers$8d96 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+},{"./Rose":"bL2gw","./Simple":"6EWcX","./setTitle":"8rq2G"}],"bL2gw":[function(require,module,exports) {
+var $parcel$ReactRefreshHelpers$d520 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
-$parcel$ReactRefreshHelpers$8d96.prelude(module);
+$parcel$ReactRefreshHelpers$d520.prelude(module);
 
 try {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "SimpleControl", ()=>SimpleControl);
-parcelHelpers.export(exports, "SimplePreview", ()=>SimplePreview);
+parcelHelpers.export(exports, "RoseControl", ()=>RoseControl);
 var _jsxDevRuntime = require("react/jsx-dev-runtime");
-var _react = require("react");
-var _reactDefault = parcelHelpers.interopDefault(_react);
-const SimpleControl = (props)=>{
-    const gridStyle = {
-        display: "grid",
-        gridTemplateColumns: "100px 100px",
-        gridGap: "5px"
-    };
-    const aStyle = {
-        height: "100px",
-        width: "100px",
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center"
-    };
-    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+const RoseControl = (props)=>{
+    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("svg", {
+        viewBox: "25 15 250 165",
         children: [
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("strong", {
-                children: "Hi, I'm Simple."
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("defs", {
+                children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("filter", {
+                    id: "shadow",
+                    children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("feDropShadow", {
+                        dx: "2",
+                        dy: "2",
+                        stdDeviation: "3",
+                        "flood-color": "#000",
+                        "flood-opacity": "0.75"
+                    }, void 0, false, {
+                        fileName: "resources/_gen/cms/Rose.js",
+                        lineNumber: 6,
+                        columnNumber: 11
+                    }, undefined)
+                }, void 0, false, {
+                    fileName: "resources/_gen/cms/Rose.js",
+                    lineNumber: 5,
+                    columnNumber: 9
+                }, undefined)
             }, void 0, false, {
-                fileName: "resources/_gen/cms/Simple.js",
-                lineNumber: 19,
+                fileName: "resources/_gen/cms/Rose.js",
+                lineNumber: 4,
                 columnNumber: 7
             }, undefined),
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                style: gridStyle,
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("g", {
+                style: {
+                    fill: "rgb(255, 255, 255)",
+                    pointerEvents: "fill"
+                },
                 children: [
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
-                        value: "1",
-                        style: aStyle,
-                        onClick: (e)=>props.onChange(e.target.value),
-                        children: "1"
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("polygon", {
+                        stroke: "#3a3a3a",
+                        "data-id": "b1",
+                        points: "78.48,51.709 58.01,55.381 54.33,75.846 69.562,83.466 69.655,83.315 72.167,69.347 86.05,66.857 "
                     }, void 0, false, {
-                        fileName: "resources/_gen/cms/Simple.js",
+                        fileName: "resources/_gen/cms/Rose.js",
+                        lineNumber: 16,
+                        columnNumber: 9
+                    }, undefined),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("polygon", {
+                        stroke: "#3a3a3a",
+                        "data-id": "b2",
+                        points: "59.55,99.793 69.562,83.466 54.33,75.846 39.523,99.988 54.32,124.132 69.682,116.455 69.649,116.272 "
+                    }, void 0, false, {
+                        fileName: "resources/_gen/cms/Rose.js",
                         lineNumber: 21,
                         columnNumber: 9
                     }, undefined),
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
-                        value: "2",
-                        style: aStyle,
-                        onClick: (e)=>props.onChange(e.target.value),
-                        children: "2"
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("polygon", {
+                        stroke: "#3a3a3a",
+                        "data-id": "b3",
+                        points: "69.682,116.455 54.32,124.132 57.992,144.602 77.726,148.149 85.602,132.662 72.155,130.244 "
                     }, void 0, false, {
-                        fileName: "resources/_gen/cms/Simple.js",
-                        lineNumber: 28,
+                        fileName: "resources/_gen/cms/Rose.js",
+                        lineNumber: 26,
                         columnNumber: 9
                     }, undefined),
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
-                        value: "3",
-                        style: aStyle,
-                        onClick: (e)=>props.onChange(e.target.value),
-                        children: "3"
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("polygon", {
+                        stroke: "#3a3a3a",
+                        "data-id": "b4",
+                        points: "86.124,132.756 85.602,132.662 77.726,148.149 78.457,148.281 102.599,163.089 126.743,148.291 119.007,132.809 102.602,142.863 "
                     }, void 0, false, {
-                        fileName: "resources/_gen/cms/Simple.js",
-                        lineNumber: 35,
+                        fileName: "resources/_gen/cms/Rose.js",
+                        lineNumber: 31,
                         columnNumber: 9
                     }, undefined),
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
-                        value: "4",
-                        style: aStyle,
-                        onClick: (e)=>props.onChange(e.target.value),
-                        children: "4"
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("polygon", {
+                        stroke: "#3a3a3a",
+                        "data-id": "b5",
+                        points: "135.532,116.47 133.053,130.257 119.081,132.763 119.007,132.809 126.743,148.291 147.213,144.619 150.893,124.154 "
                     }, void 0, false, {
-                        fileName: "resources/_gen/cms/Simple.js",
-                        lineNumber: 42,
+                        fileName: "resources/_gen/cms/Rose.js",
+                        lineNumber: 36,
+                        columnNumber: 9
+                    }, undefined),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("polygon", {
+                        stroke: "#3a3a3a",
+                        "data-id": "b6",
+                        points: "165.7,100.013 150.902,75.869 135.664,83.483 145.672,99.811 135.564,116.288 135.532,116.47 150.893,124.154 "
+                    }, void 0, false, {
+                        fileName: "resources/_gen/cms/Rose.js",
+                        lineNumber: 41,
+                        columnNumber: 9
+                    }, undefined),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("polygon", {
+                        stroke: "#3a3a3a",
+                        "data-id": "b7",
+                        points: "147.23,55.398 126.766,51.719 119.078,66.836 119.097,66.847 133.065,69.359 135.571,83.331 135.664,83.483 150.902,75.869 "
+                    }, void 0, false, {
+                        fileName: "resources/_gen/cms/Rose.js",
+                        lineNumber: 46,
+                        columnNumber: 9
+                    }, undefined),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("polygon", {
+                        stroke: "#3a3a3a",
+                        "data-id": "b8",
+                        points: "102.619,56.741 119.078,66.836 126.766,51.719 102.624,36.912 78.48,51.709 86.05,66.857 86.14,66.841 "
+                    }, void 0, false, {
+                        fileName: "resources/_gen/cms/Rose.js",
+                        lineNumber: 51,
                         columnNumber: 9
                     }, undefined)
                 ]
             }, void 0, true, {
-                fileName: "resources/_gen/cms/Simple.js",
-                lineNumber: 20,
+                fileName: "resources/_gen/cms/Rose.js",
+                lineNumber: 15,
+                columnNumber: 7
+            }, undefined),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("g", {
+                style: {
+                    fill: "rgb(255, 255, 255)",
+                    pointerEvents: "fill"
+                },
+                children: [
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("polygon", {
+                        stroke: "#3a3a3a",
+                        "data-id": "t1",
+                        points: "85.112,82.386 93.095,80.955 86.05,66.857 72.167,69.347 69.655,83.315 69.562,83.466 83.605,90.492 83.677,90.375 "
+                    }, void 0, false, {
+                        fileName: "resources/_gen/cms/Rose.js",
+                        lineNumber: 58,
+                        columnNumber: 9
+                    }, undefined),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("polygon", {
+                        stroke: "#3a3a3a",
+                        "data-id": "t2",
+                        points: "77.897,99.798 83.605,90.492 69.562,83.466 59.55,99.793 69.649,116.272 69.682,116.455 83.712,109.444 83.673,109.223 "
+                    }, void 0, false, {
+                        fileName: "resources/_gen/cms/Rose.js",
+                        lineNumber: 63,
+                        columnNumber: 9
+                    }, undefined),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("polygon", {
+                        stroke: "#3a3a3a",
+                        "data-id": "t3",
+                        fill: "#fff",
+                        points: "83.712,109.444 69.682,116.455 72.155,130.244 85.602,132.662 92.759,118.588 85.106,117.213 "
+                    }, void 0, false, {
+                        fileName: "resources/_gen/cms/Rose.js",
+                        lineNumber: 68,
+                        columnNumber: 9
+                    }, undefined),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("polygon", {
+                        stroke: "#3a3a3a",
+                        "data-id": "t4",
+                        fill: "#fff",
+                        points: "93.095,118.648 92.759,118.588 85.602,132.662 86.124,132.756 102.602,142.863 119.007,132.809 111.935,118.656 102.518,124.428 "
+                    }, void 0, false, {
+                        fileName: "resources/_gen/cms/Rose.js",
+                        lineNumber: 74,
+                        columnNumber: 9
+                    }, undefined),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("polygon", {
+                        stroke: "#3a3a3a",
+                        "data-id": "t5",
+                        fill: "#fff",
+                        points: "121.343,109.371 119.932,117.219 111.941,118.652 111.935,118.656 119.007,132.809 119.081,132.763 133.053,130.257 135.532,116.47 "
+                    }, void 0, false, {
+                        fileName: "resources/_gen/cms/Rose.js",
+                        lineNumber: 80,
+                        columnNumber: 9
+                    }, undefined),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("polygon", {
+                        stroke: "#3a3a3a",
+                        "data-id": "t6",
+                        fill: "#fff",
+                        points: "135.664,83.483 121.485,90.568 127.148,99.808 121.368,109.23 121.343,109.371 135.532,116.47 135.564,116.288 145.672,99.811 "
+                    }, void 0, false, {
+                        fileName: "resources/_gen/cms/Rose.js",
+                        lineNumber: 86,
+                        columnNumber: 9
+                    }, undefined),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("polygon", {
+                        stroke: "#3a3a3a",
+                        "data-id": "t7",
+                        points: "119.938,82.393 121.372,90.383 121.485,90.568 135.664,83.483 135.571,83.331 133.065,69.359 119.097,66.847 119.078,66.836 111.91,80.932 111.95,80.957 "
+                    }, void 0, false, {
+                        fileName: "resources/_gen/cms/Rose.js",
+                        lineNumber: 92,
+                        columnNumber: 9
+                    }, undefined),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("polygon", {
+                        stroke: "#3a3a3a",
+                        "data-id": "t8",
+                        points: "102.527,75.177 111.91,80.932 119.078,66.836 102.619,56.741 86.14,66.841 86.05,66.857 93.095,80.955 93.103,80.953 "
+                    }, void 0, false, {
+                        fileName: "resources/_gen/cms/Rose.js",
+                        lineNumber: 97,
+                        columnNumber: 9
+                    }, undefined)
+                ]
+            }, void 0, true, {
+                fileName: "resources/_gen/cms/Rose.js",
+                lineNumber: 57,
+                columnNumber: 7
+            }, undefined),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("g", {
+                style: {
+                    fill: "rgb(255, 255, 255)",
+                    pointerEvents: "fill"
+                },
+                children: [
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("polygon", {
+                        stroke: "#3a3a3a",
+                        "data-id": "a1",
+                        points: "102.414,99.604 93.095,80.955 85.112,82.386 83.677,90.375 83.605,90.492 102.293,99.841 "
+                    }, void 0, false, {
+                        fileName: "resources/_gen/cms/Rose.js",
+                        lineNumber: 104,
+                        columnNumber: 9
+                    }, undefined),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("polygon", {
+                        stroke: "#3a3a3a",
+                        "data-id": "a2",
+                        fill: "#fff",
+                        points: "102.293,99.841 83.605,90.492 77.897,99.798 83.673,109.223 83.712,109.444 102.076,100.268 "
+                    }, void 0, false, {
+                        fileName: "resources/_gen/cms/Rose.js",
+                        lineNumber: 109,
+                        columnNumber: 9
+                    }, undefined),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("polygon", {
+                        stroke: "#3a3a3a",
+                        "data-id": "a3",
+                        fill: "#fff",
+                        points: "83.712,109.444 85.106,117.213 92.759,118.588 102.076,100.268 "
+                    }, void 0, false, {
+                        fileName: "resources/_gen/cms/Rose.js",
+                        lineNumber: 115,
+                        columnNumber: 9
+                    }, undefined),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("polygon", {
+                        stroke: "#3a3a3a",
+                        "data-id": "a4",
+                        fill: "#fff",
+                        points: "102.611,100 102.076,100.268 92.759,118.588 93.095,118.648 102.518,124.428 111.935,118.656 102.612,100.001 "
+                    }, void 0, false, {
+                        fileName: "resources/_gen/cms/Rose.js",
+                        lineNumber: 121,
+                        columnNumber: 9
+                    }, undefined),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("polygon", {
+                        stroke: "#3a3a3a",
+                        "data-id": "a5",
+                        fill: "#fff",
+                        points: "119.932,117.219 121.343,109.371 102.612,100.001 111.935,118.656 111.941,118.652 "
+                    }, void 0, false, {
+                        fileName: "resources/_gen/cms/Rose.js",
+                        lineNumber: 127,
+                        columnNumber: 9
+                    }, undefined),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("polygon", {
+                        stroke: "#3a3a3a",
+                        "data-id": "a6",
+                        fill: "#fff",
+                        points: "127.148,99.808 121.485,90.568 102.612,100 102.612,100.001 121.343,109.371 121.368,109.23 "
+                    }, void 0, false, {
+                        fileName: "resources/_gen/cms/Rose.js",
+                        lineNumber: 133,
+                        columnNumber: 9
+                    }, undefined),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("polygon", {
+                        stroke: "#3a3a3a",
+                        "data-id": "a7",
+                        fill: "#fff",
+                        points: "102.612,100 121.485,90.568 121.372,90.383 119.938,82.393 111.95,80.957 111.91,80.932 102.414,99.604 "
+                    }, void 0, false, {
+                        fileName: "resources/_gen/cms/Rose.js",
+                        lineNumber: 139,
+                        columnNumber: 9
+                    }, undefined),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("polygon", {
+                        stroke: "#3a3a3a",
+                        "data-id": "a8",
+                        points: "111.91,80.932 102.527,75.177 93.103,80.953 93.095,80.955 102.414,99.604 "
+                    }, void 0, false, {
+                        fileName: "resources/_gen/cms/Rose.js",
+                        lineNumber: 145,
+                        columnNumber: 9
+                    }, undefined)
+                ]
+            }, void 0, true, {
+                fileName: "resources/_gen/cms/Rose.js",
+                lineNumber: 103,
+                columnNumber: 7
+            }, undefined),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("g", {
+                children: [
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("text", {
+                        transform: "matrix(1 0 0 1 97.75 29.7798)",
+                        "font-size": "12",
+                        "font-weight": "bold",
+                        children: "N"
+                    }, void 0, false, {
+                        fileName: "resources/_gen/cms/Rose.js",
+                        lineNumber: 152,
+                        columnNumber: 9
+                    }, undefined),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("text", {
+                        transform: "matrix(1 0 0 1 99.5801 174.9004)",
+                        "font-size": "10",
+                        children: "S"
+                    }, void 0, false, {
+                        fileName: "resources/_gen/cms/Rose.js",
+                        lineNumber: 159,
+                        columnNumber: 9
+                    }, undefined),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("text", {
+                        transform: "matrix(1 0 0 1 170.5957 104.582)",
+                        "font-size": "10",
+                        children: "E"
+                    }, void 0, false, {
+                        fileName: "resources/_gen/cms/Rose.js",
+                        lineNumber: 162,
+                        columnNumber: 9
+                    }, undefined),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("text", {
+                        transform: "matrix(1 0 0 1 150.4736 51.3208)",
+                        "font-size": "7",
+                        children: "NE"
+                    }, void 0, false, {
+                        fileName: "resources/_gen/cms/Rose.js",
+                        lineNumber: 165,
+                        columnNumber: 9
+                    }, undefined),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("text", {
+                        transform: "matrix(1 0 0 1 151.1943 152.7061)",
+                        "font-size": "7",
+                        children: "SE"
+                    }, void 0, false, {
+                        fileName: "resources/_gen/cms/Rose.js",
+                        lineNumber: 168,
+                        columnNumber: 9
+                    }, undefined),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("text", {
+                        transform: "matrix(1 0 0 1 44.459 51.3208)",
+                        "font-size": "7",
+                        children: "NW"
+                    }, void 0, false, {
+                        fileName: "resources/_gen/cms/Rose.js",
+                        lineNumber: 171,
+                        columnNumber: 9
+                    }, undefined),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("text", {
+                        transform: "matrix(1 0 0 1 45.1797 152.7061)",
+                        "font-size": "7",
+                        children: "SW"
+                    }, void 0, false, {
+                        fileName: "resources/_gen/cms/Rose.js",
+                        lineNumber: 174,
+                        columnNumber: 9
+                    }, undefined),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("text", {
+                        transform: "matrix(1 0 0 1 25.6279 104.582)",
+                        "font-size": "10",
+                        children: "W"
+                    }, void 0, false, {
+                        fileName: "resources/_gen/cms/Rose.js",
+                        lineNumber: 177,
+                        columnNumber: 9
+                    }, undefined),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("text", {
+                        transform: "matrix(1 0 0 1 202.1719 115.8027)",
+                        fill: "#808285",
+                        "font-size": "7",
+                        children: "Alpine"
+                    }, void 0, false, {
+                        fileName: "resources/_gen/cms/Rose.js",
+                        lineNumber: 180,
+                        columnNumber: 9
+                    }, undefined),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("text", {
+                        transform: "matrix(1 0 0 1 202.1719 127.8828)",
+                        fill: "#808285",
+                        "font-size": "7",
+                        children: "Tree Line"
+                    }, void 0, false, {
+                        fileName: "resources/_gen/cms/Rose.js",
+                        lineNumber: 187,
+                        columnNumber: 9
+                    }, undefined),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("text", {
+                        transform: "matrix(1 0 0 1 202.1719 139.4551)",
+                        fill: "#808285",
+                        "font-size": "7",
+                        children: "Below Tree Line"
+                    }, void 0, false, {
+                        fileName: "resources/_gen/cms/Rose.js",
+                        lineNumber: 194,
+                        columnNumber: 9
+                    }, undefined),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("line", {
+                        fill: "none",
+                        stroke: "#3d3d3d",
+                        "stroke-width": "0.25",
+                        x1: "198.5",
+                        y1: "114.132",
+                        x2: "113.881",
+                        y2: "114.132"
+                    }, void 0, false, {
+                        fileName: "resources/_gen/cms/Rose.js",
+                        lineNumber: 201,
+                        columnNumber: 9
+                    }, undefined),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("line", {
+                        fill: "none",
+                        stroke: "#3d3d3d",
+                        "stroke-width": "0.25",
+                        x1: "198.5",
+                        y1: "126.5",
+                        x2: "125.211",
+                        y2: "126.5"
+                    }, void 0, false, {
+                        fileName: "resources/_gen/cms/Rose.js",
+                        lineNumber: 210,
+                        columnNumber: 9
+                    }, undefined),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("line", {
+                        fill: "none",
+                        stroke: "#3d3d3d",
+                        "stroke-width": "0.25",
+                        x1: "198.5",
+                        y1: "137.062",
+                        x2: "135.62",
+                        y2: "137.062"
+                    }, void 0, false, {
+                        fileName: "resources/_gen/cms/Rose.js",
+                        lineNumber: 219,
+                        columnNumber: 9
+                    }, undefined)
+                ]
+            }, void 0, true, {
+                fileName: "resources/_gen/cms/Rose.js",
+                lineNumber: 151,
+                columnNumber: 7
+            }, undefined),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("polygon", {
+                fill: "none",
+                stroke: "#3a3a3a",
+                "stroke-width": "2",
+                "stroke-miterlimit": "10",
+                points: "147.224,144.223 126.754,147.895 102.609,162.692 78.468,147.885 58.003,144.205 54.331,123.735 39.534,99.591 54.341,75.449 58.021,54.984 78.491,51.312 102.635,36.515 126.776,51.322 147.241,55.002 150.913,75.472 165.711,99.616 150.903,123.758 "
+            }, void 0, false, {
+                fileName: "resources/_gen/cms/Rose.js",
+                lineNumber: 229,
                 columnNumber: 7
             }, undefined)
         ]
     }, void 0, true, {
-        fileName: "resources/_gen/cms/Simple.js",
-        lineNumber: 18,
+        fileName: "resources/_gen/cms/Rose.js",
+        lineNumber: 3,
         columnNumber: 5
     }, undefined);
 };
-_c = SimpleControl;
-const SimplePreview = (props)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("pre", {
-            children: props.value
-        }, void 0, false, {
-            fileName: "resources/_gen/cms/Simple.js",
-            lineNumber: 57,
-            columnNumber: 5
-        }, undefined)
-    }, void 0, false, {
-        fileName: "resources/_gen/cms/Simple.js",
-        lineNumber: 56,
-        columnNumber: 3
-    }, undefined);
-_c1 = SimplePreview;
-var _c, _c1;
-$RefreshReg$(_c, "SimpleControl");
-$RefreshReg$(_c1, "SimplePreview");
+_c = RoseControl;
+var _c;
+$RefreshReg$(_c, "RoseControl");
 
-  $parcel$ReactRefreshHelpers$8d96.postlude(module);
+  $parcel$ReactRefreshHelpers$d520.postlude(module);
 } finally {
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"iTorj":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"iTorj":[function(require,module,exports) {
 "use strict";
 module.exports = require("./cjs/react-jsx-dev-runtime.development.js");
 
@@ -5864,484 +6235,163 @@ function registerExportsForReactRefresh(module1) {
     }
 }
 
-},{"react-refresh/runtime":"786KC"}],"bL2gw":[function(require,module,exports) {
-var $parcel$ReactRefreshHelpers$d520 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+},{"react-refresh/runtime":"786KC"}],"6EWcX":[function(require,module,exports) {
+var $parcel$ReactRefreshHelpers$8d96 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
-$parcel$ReactRefreshHelpers$d520.prelude(module);
+$parcel$ReactRefreshHelpers$8d96.prelude(module);
 
 try {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "RoseControl", ()=>RoseControl);
+parcelHelpers.export(exports, "SimpleControl", ()=>SimpleControl);
+parcelHelpers.export(exports, "SimplePreview", ()=>SimplePreview);
 var _jsxDevRuntime = require("react/jsx-dev-runtime");
-const RoseControl = (props)=>{
-    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("svg", {
-        viewBox: "25 15 250 165",
+var _react = require("react");
+var _reactDefault = parcelHelpers.interopDefault(_react);
+const SimpleControl = (props)=>{
+    const gridStyle = {
+        display: "grid",
+        gridTemplateColumns: "100px 100px",
+        gridGap: "5px"
+    };
+    const aStyle = {
+        height: "100px",
+        width: "100px",
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center"
+    };
+    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
         children: [
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("defs", {
-                children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("filter", {
-                    id: "shadow",
-                    children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("feDropShadow", {
-                        dx: "2",
-                        dy: "2",
-                        stdDeviation: "3",
-                        "flood-color": "#000",
-                        "flood-opacity": "0.75"
-                    }, void 0, false, {
-                        fileName: "resources/_gen/cms/Rose.js",
-                        lineNumber: 6,
-                        columnNumber: 11
-                    }, undefined)
-                }, void 0, false, {
-                    fileName: "resources/_gen/cms/Rose.js",
-                    lineNumber: 5,
-                    columnNumber: 9
-                }, undefined)
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("strong", {
+                children: "Hi, I'm Simple."
             }, void 0, false, {
-                fileName: "resources/_gen/cms/Rose.js",
-                lineNumber: 4,
+                fileName: "resources/_gen/cms/Simple.js",
+                lineNumber: 19,
                 columnNumber: 7
             }, undefined),
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("g", {
-                style: {
-                    fill: "rgb(255, 255, 255)",
-                    pointerEvents: "fill"
-                },
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                style: gridStyle,
                 children: [
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("polygon", {
-                        stroke: "#3a3a3a",
-                        "data-id": "b1",
-                        points: "78.48,51.709 58.01,55.381 54.33,75.846 69.562,83.466 69.655,83.315 72.167,69.347 86.05,66.857 "
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                        value: "1",
+                        style: aStyle,
+                        onClick: (e)=>props.onChange(e.target.value),
+                        children: "1"
                     }, void 0, false, {
-                        fileName: "resources/_gen/cms/Rose.js",
-                        lineNumber: 16,
-                        columnNumber: 9
-                    }, undefined),
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("polygon", {
-                        stroke: "#3a3a3a",
-                        "data-id": "b2",
-                        points: "59.55,99.793 69.562,83.466 54.33,75.846 39.523,99.988 54.32,124.132 69.682,116.455 69.649,116.272 "
-                    }, void 0, false, {
-                        fileName: "resources/_gen/cms/Rose.js",
+                        fileName: "resources/_gen/cms/Simple.js",
                         lineNumber: 21,
                         columnNumber: 9
                     }, undefined),
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("polygon", {
-                        stroke: "#3a3a3a",
-                        "data-id": "b3",
-                        points: "69.682,116.455 54.32,124.132 57.992,144.602 77.726,148.149 85.602,132.662 72.155,130.244 "
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                        value: "2",
+                        style: aStyle,
+                        onClick: (e)=>props.onChange(e.target.value),
+                        children: "2"
                     }, void 0, false, {
-                        fileName: "resources/_gen/cms/Rose.js",
-                        lineNumber: 26,
+                        fileName: "resources/_gen/cms/Simple.js",
+                        lineNumber: 28,
                         columnNumber: 9
                     }, undefined),
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("polygon", {
-                        stroke: "#3a3a3a",
-                        "data-id": "b4",
-                        points: "86.124,132.756 85.602,132.662 77.726,148.149 78.457,148.281 102.599,163.089 126.743,148.291 119.007,132.809 102.602,142.863 "
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                        value: "3",
+                        style: aStyle,
+                        onClick: (e)=>props.onChange(e.target.value),
+                        children: "3"
                     }, void 0, false, {
-                        fileName: "resources/_gen/cms/Rose.js",
-                        lineNumber: 31,
+                        fileName: "resources/_gen/cms/Simple.js",
+                        lineNumber: 35,
                         columnNumber: 9
                     }, undefined),
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("polygon", {
-                        stroke: "#3a3a3a",
-                        "data-id": "b5",
-                        points: "135.532,116.47 133.053,130.257 119.081,132.763 119.007,132.809 126.743,148.291 147.213,144.619 150.893,124.154 "
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                        value: "4",
+                        style: aStyle,
+                        onClick: (e)=>props.onChange(e.target.value),
+                        children: "4"
                     }, void 0, false, {
-                        fileName: "resources/_gen/cms/Rose.js",
-                        lineNumber: 36,
-                        columnNumber: 9
-                    }, undefined),
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("polygon", {
-                        stroke: "#3a3a3a",
-                        "data-id": "b6",
-                        points: "165.7,100.013 150.902,75.869 135.664,83.483 145.672,99.811 135.564,116.288 135.532,116.47 150.893,124.154 "
-                    }, void 0, false, {
-                        fileName: "resources/_gen/cms/Rose.js",
-                        lineNumber: 41,
-                        columnNumber: 9
-                    }, undefined),
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("polygon", {
-                        stroke: "#3a3a3a",
-                        "data-id": "b7",
-                        points: "147.23,55.398 126.766,51.719 119.078,66.836 119.097,66.847 133.065,69.359 135.571,83.331 135.664,83.483 150.902,75.869 "
-                    }, void 0, false, {
-                        fileName: "resources/_gen/cms/Rose.js",
-                        lineNumber: 46,
-                        columnNumber: 9
-                    }, undefined),
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("polygon", {
-                        stroke: "#3a3a3a",
-                        "data-id": "b8",
-                        points: "102.619,56.741 119.078,66.836 126.766,51.719 102.624,36.912 78.48,51.709 86.05,66.857 86.14,66.841 "
-                    }, void 0, false, {
-                        fileName: "resources/_gen/cms/Rose.js",
-                        lineNumber: 51,
+                        fileName: "resources/_gen/cms/Simple.js",
+                        lineNumber: 42,
                         columnNumber: 9
                     }, undefined)
                 ]
             }, void 0, true, {
-                fileName: "resources/_gen/cms/Rose.js",
-                lineNumber: 15,
-                columnNumber: 7
-            }, undefined),
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("g", {
-                style: {
-                    fill: "rgb(255, 255, 255)",
-                    pointerEvents: "fill"
-                },
-                children: [
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("polygon", {
-                        stroke: "#3a3a3a",
-                        "data-id": "t1",
-                        points: "85.112,82.386 93.095,80.955 86.05,66.857 72.167,69.347 69.655,83.315 69.562,83.466 83.605,90.492 83.677,90.375 "
-                    }, void 0, false, {
-                        fileName: "resources/_gen/cms/Rose.js",
-                        lineNumber: 58,
-                        columnNumber: 9
-                    }, undefined),
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("polygon", {
-                        stroke: "#3a3a3a",
-                        "data-id": "t2",
-                        points: "77.897,99.798 83.605,90.492 69.562,83.466 59.55,99.793 69.649,116.272 69.682,116.455 83.712,109.444 83.673,109.223 "
-                    }, void 0, false, {
-                        fileName: "resources/_gen/cms/Rose.js",
-                        lineNumber: 63,
-                        columnNumber: 9
-                    }, undefined),
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("polygon", {
-                        stroke: "#3a3a3a",
-                        "data-id": "t3",
-                        fill: "#fff",
-                        points: "83.712,109.444 69.682,116.455 72.155,130.244 85.602,132.662 92.759,118.588 85.106,117.213 "
-                    }, void 0, false, {
-                        fileName: "resources/_gen/cms/Rose.js",
-                        lineNumber: 68,
-                        columnNumber: 9
-                    }, undefined),
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("polygon", {
-                        stroke: "#3a3a3a",
-                        "data-id": "t4",
-                        fill: "#fff",
-                        points: "93.095,118.648 92.759,118.588 85.602,132.662 86.124,132.756 102.602,142.863 119.007,132.809 111.935,118.656 102.518,124.428 "
-                    }, void 0, false, {
-                        fileName: "resources/_gen/cms/Rose.js",
-                        lineNumber: 74,
-                        columnNumber: 9
-                    }, undefined),
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("polygon", {
-                        stroke: "#3a3a3a",
-                        "data-id": "t5",
-                        fill: "#fff",
-                        points: "121.343,109.371 119.932,117.219 111.941,118.652 111.935,118.656 119.007,132.809 119.081,132.763 133.053,130.257 135.532,116.47 "
-                    }, void 0, false, {
-                        fileName: "resources/_gen/cms/Rose.js",
-                        lineNumber: 80,
-                        columnNumber: 9
-                    }, undefined),
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("polygon", {
-                        stroke: "#3a3a3a",
-                        "data-id": "t6",
-                        fill: "#fff",
-                        points: "135.664,83.483 121.485,90.568 127.148,99.808 121.368,109.23 121.343,109.371 135.532,116.47 135.564,116.288 145.672,99.811 "
-                    }, void 0, false, {
-                        fileName: "resources/_gen/cms/Rose.js",
-                        lineNumber: 86,
-                        columnNumber: 9
-                    }, undefined),
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("polygon", {
-                        stroke: "#3a3a3a",
-                        "data-id": "t7",
-                        points: "119.938,82.393 121.372,90.383 121.485,90.568 135.664,83.483 135.571,83.331 133.065,69.359 119.097,66.847 119.078,66.836 111.91,80.932 111.95,80.957 "
-                    }, void 0, false, {
-                        fileName: "resources/_gen/cms/Rose.js",
-                        lineNumber: 92,
-                        columnNumber: 9
-                    }, undefined),
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("polygon", {
-                        stroke: "#3a3a3a",
-                        "data-id": "t8",
-                        points: "102.527,75.177 111.91,80.932 119.078,66.836 102.619,56.741 86.14,66.841 86.05,66.857 93.095,80.955 93.103,80.953 "
-                    }, void 0, false, {
-                        fileName: "resources/_gen/cms/Rose.js",
-                        lineNumber: 97,
-                        columnNumber: 9
-                    }, undefined)
-                ]
-            }, void 0, true, {
-                fileName: "resources/_gen/cms/Rose.js",
-                lineNumber: 57,
-                columnNumber: 7
-            }, undefined),
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("g", {
-                style: {
-                    fill: "rgb(255, 255, 255)",
-                    pointerEvents: "fill"
-                },
-                children: [
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("polygon", {
-                        stroke: "#3a3a3a",
-                        "data-id": "a1",
-                        points: "102.414,99.604 93.095,80.955 85.112,82.386 83.677,90.375 83.605,90.492 102.293,99.841 "
-                    }, void 0, false, {
-                        fileName: "resources/_gen/cms/Rose.js",
-                        lineNumber: 104,
-                        columnNumber: 9
-                    }, undefined),
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("polygon", {
-                        stroke: "#3a3a3a",
-                        "data-id": "a2",
-                        fill: "#fff",
-                        points: "102.293,99.841 83.605,90.492 77.897,99.798 83.673,109.223 83.712,109.444 102.076,100.268 "
-                    }, void 0, false, {
-                        fileName: "resources/_gen/cms/Rose.js",
-                        lineNumber: 109,
-                        columnNumber: 9
-                    }, undefined),
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("polygon", {
-                        stroke: "#3a3a3a",
-                        "data-id": "a3",
-                        fill: "#fff",
-                        points: "83.712,109.444 85.106,117.213 92.759,118.588 102.076,100.268 "
-                    }, void 0, false, {
-                        fileName: "resources/_gen/cms/Rose.js",
-                        lineNumber: 115,
-                        columnNumber: 9
-                    }, undefined),
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("polygon", {
-                        stroke: "#3a3a3a",
-                        "data-id": "a4",
-                        fill: "#fff",
-                        points: "102.611,100 102.076,100.268 92.759,118.588 93.095,118.648 102.518,124.428 111.935,118.656 102.612,100.001 "
-                    }, void 0, false, {
-                        fileName: "resources/_gen/cms/Rose.js",
-                        lineNumber: 121,
-                        columnNumber: 9
-                    }, undefined),
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("polygon", {
-                        stroke: "#3a3a3a",
-                        "data-id": "a5",
-                        fill: "#fff",
-                        points: "119.932,117.219 121.343,109.371 102.612,100.001 111.935,118.656 111.941,118.652 "
-                    }, void 0, false, {
-                        fileName: "resources/_gen/cms/Rose.js",
-                        lineNumber: 127,
-                        columnNumber: 9
-                    }, undefined),
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("polygon", {
-                        stroke: "#3a3a3a",
-                        "data-id": "a6",
-                        fill: "#fff",
-                        points: "127.148,99.808 121.485,90.568 102.612,100 102.612,100.001 121.343,109.371 121.368,109.23 "
-                    }, void 0, false, {
-                        fileName: "resources/_gen/cms/Rose.js",
-                        lineNumber: 133,
-                        columnNumber: 9
-                    }, undefined),
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("polygon", {
-                        stroke: "#3a3a3a",
-                        "data-id": "a7",
-                        fill: "#fff",
-                        points: "102.612,100 121.485,90.568 121.372,90.383 119.938,82.393 111.95,80.957 111.91,80.932 102.414,99.604 "
-                    }, void 0, false, {
-                        fileName: "resources/_gen/cms/Rose.js",
-                        lineNumber: 139,
-                        columnNumber: 9
-                    }, undefined),
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("polygon", {
-                        stroke: "#3a3a3a",
-                        "data-id": "a8",
-                        points: "111.91,80.932 102.527,75.177 93.103,80.953 93.095,80.955 102.414,99.604 "
-                    }, void 0, false, {
-                        fileName: "resources/_gen/cms/Rose.js",
-                        lineNumber: 145,
-                        columnNumber: 9
-                    }, undefined)
-                ]
-            }, void 0, true, {
-                fileName: "resources/_gen/cms/Rose.js",
-                lineNumber: 103,
-                columnNumber: 7
-            }, undefined),
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("g", {
-                children: [
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("text", {
-                        transform: "matrix(1 0 0 1 97.75 29.7798)",
-                        "font-size": "12",
-                        "font-weight": "bold",
-                        children: "N"
-                    }, void 0, false, {
-                        fileName: "resources/_gen/cms/Rose.js",
-                        lineNumber: 152,
-                        columnNumber: 9
-                    }, undefined),
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("text", {
-                        transform: "matrix(1 0 0 1 99.5801 174.9004)",
-                        "font-size": "10",
-                        children: "S"
-                    }, void 0, false, {
-                        fileName: "resources/_gen/cms/Rose.js",
-                        lineNumber: 159,
-                        columnNumber: 9
-                    }, undefined),
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("text", {
-                        transform: "matrix(1 0 0 1 170.5957 104.582)",
-                        "font-size": "10",
-                        children: "E"
-                    }, void 0, false, {
-                        fileName: "resources/_gen/cms/Rose.js",
-                        lineNumber: 162,
-                        columnNumber: 9
-                    }, undefined),
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("text", {
-                        transform: "matrix(1 0 0 1 150.4736 51.3208)",
-                        "font-size": "7",
-                        children: "NE"
-                    }, void 0, false, {
-                        fileName: "resources/_gen/cms/Rose.js",
-                        lineNumber: 165,
-                        columnNumber: 9
-                    }, undefined),
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("text", {
-                        transform: "matrix(1 0 0 1 151.1943 152.7061)",
-                        "font-size": "7",
-                        children: "SE"
-                    }, void 0, false, {
-                        fileName: "resources/_gen/cms/Rose.js",
-                        lineNumber: 168,
-                        columnNumber: 9
-                    }, undefined),
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("text", {
-                        transform: "matrix(1 0 0 1 44.459 51.3208)",
-                        "font-size": "7",
-                        children: "NW"
-                    }, void 0, false, {
-                        fileName: "resources/_gen/cms/Rose.js",
-                        lineNumber: 171,
-                        columnNumber: 9
-                    }, undefined),
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("text", {
-                        transform: "matrix(1 0 0 1 45.1797 152.7061)",
-                        "font-size": "7",
-                        children: "SW"
-                    }, void 0, false, {
-                        fileName: "resources/_gen/cms/Rose.js",
-                        lineNumber: 174,
-                        columnNumber: 9
-                    }, undefined),
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("text", {
-                        transform: "matrix(1 0 0 1 25.6279 104.582)",
-                        "font-size": "10",
-                        children: "W"
-                    }, void 0, false, {
-                        fileName: "resources/_gen/cms/Rose.js",
-                        lineNumber: 177,
-                        columnNumber: 9
-                    }, undefined),
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("text", {
-                        transform: "matrix(1 0 0 1 202.1719 115.8027)",
-                        fill: "#808285",
-                        "font-size": "7",
-                        children: "Alpine"
-                    }, void 0, false, {
-                        fileName: "resources/_gen/cms/Rose.js",
-                        lineNumber: 180,
-                        columnNumber: 9
-                    }, undefined),
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("text", {
-                        transform: "matrix(1 0 0 1 202.1719 127.8828)",
-                        fill: "#808285",
-                        "font-size": "7",
-                        children: "Tree Line"
-                    }, void 0, false, {
-                        fileName: "resources/_gen/cms/Rose.js",
-                        lineNumber: 187,
-                        columnNumber: 9
-                    }, undefined),
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("text", {
-                        transform: "matrix(1 0 0 1 202.1719 139.4551)",
-                        fill: "#808285",
-                        "font-size": "7",
-                        children: "Below Tree Line"
-                    }, void 0, false, {
-                        fileName: "resources/_gen/cms/Rose.js",
-                        lineNumber: 194,
-                        columnNumber: 9
-                    }, undefined),
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("line", {
-                        fill: "none",
-                        stroke: "#3d3d3d",
-                        "stroke-width": "0.25",
-                        x1: "198.5",
-                        y1: "114.132",
-                        x2: "113.881",
-                        y2: "114.132"
-                    }, void 0, false, {
-                        fileName: "resources/_gen/cms/Rose.js",
-                        lineNumber: 201,
-                        columnNumber: 9
-                    }, undefined),
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("line", {
-                        fill: "none",
-                        stroke: "#3d3d3d",
-                        "stroke-width": "0.25",
-                        x1: "198.5",
-                        y1: "126.5",
-                        x2: "125.211",
-                        y2: "126.5"
-                    }, void 0, false, {
-                        fileName: "resources/_gen/cms/Rose.js",
-                        lineNumber: 210,
-                        columnNumber: 9
-                    }, undefined),
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("line", {
-                        fill: "none",
-                        stroke: "#3d3d3d",
-                        "stroke-width": "0.25",
-                        x1: "198.5",
-                        y1: "137.062",
-                        x2: "135.62",
-                        y2: "137.062"
-                    }, void 0, false, {
-                        fileName: "resources/_gen/cms/Rose.js",
-                        lineNumber: 219,
-                        columnNumber: 9
-                    }, undefined)
-                ]
-            }, void 0, true, {
-                fileName: "resources/_gen/cms/Rose.js",
-                lineNumber: 151,
-                columnNumber: 7
-            }, undefined),
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("polygon", {
-                fill: "none",
-                stroke: "#3a3a3a",
-                "stroke-width": "2",
-                "stroke-miterlimit": "10",
-                points: "147.224,144.223 126.754,147.895 102.609,162.692 78.468,147.885 58.003,144.205 54.331,123.735 39.534,99.591 54.341,75.449 58.021,54.984 78.491,51.312 102.635,36.515 126.776,51.322 147.241,55.002 150.913,75.472 165.711,99.616 150.903,123.758 "
-            }, void 0, false, {
-                fileName: "resources/_gen/cms/Rose.js",
-                lineNumber: 229,
+                fileName: "resources/_gen/cms/Simple.js",
+                lineNumber: 20,
                 columnNumber: 7
             }, undefined)
         ]
     }, void 0, true, {
-        fileName: "resources/_gen/cms/Rose.js",
-        lineNumber: 3,
+        fileName: "resources/_gen/cms/Simple.js",
+        lineNumber: 18,
         columnNumber: 5
     }, undefined);
 };
-_c = RoseControl;
-var _c;
-$RefreshReg$(_c, "RoseControl");
+_c = SimpleControl;
+const SimplePreview = (props)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("pre", {
+            children: props.value
+        }, void 0, false, {
+            fileName: "resources/_gen/cms/Simple.js",
+            lineNumber: 57,
+            columnNumber: 5
+        }, undefined)
+    }, void 0, false, {
+        fileName: "resources/_gen/cms/Simple.js",
+        lineNumber: 56,
+        columnNumber: 3
+    }, undefined);
+_c1 = SimplePreview;
+var _c, _c1;
+$RefreshReg$(_c, "SimpleControl");
+$RefreshReg$(_c1, "SimplePreview");
 
-  $parcel$ReactRefreshHelpers$d520.postlude(module);
+  $parcel$ReactRefreshHelpers$8d96.postlude(module);
 } finally {
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}]},["1xC6H","de3Fj","hfz1d"], "hfz1d", "parcelRequireabcf")
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"8rq2G":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "setTitle", ()=>setTitle);
+function setTitle() {
+    initFields();
+    onhashchange = ()=>{
+        initFields();
+    };
+}
+function initFields() {
+    const reCheck = setInterval(()=>{
+        const date = document.querySelector("[id^='date-field']");
+        const title = document.querySelector("[id^='date_clone-field']");
+        if (date && title) {
+            console.log(title);
+            // title.value = "whoaaaa oh shit";
+            clearInterval(reCheck);
+            //! OBS
+            // Options for the observer (which mutations to observe)
+            const config = {
+                attributes: true,
+                childList: false,
+                subtree: false
+            };
+            // Callback function to execute when mutations are observed
+            const callback = (mutationList, _observer)=>{
+                for (const mutation of mutationList)console.log(mutation);
+            };
+            // Create an observer instance linked to the callback function
+            const observer = new MutationObserver(callback);
+            // Start observing the target node for configured mutations
+            observer.observe(date, config);
+            console.log(observer);
+        // Later, you can stop observing
+        // TODO
+        // observer.disconnect();
+        }
+    }, 500);
+}
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}]},["1xC6H","eZ5dk","hfz1d"], "hfz1d", "parcelRequireabcf")
 
 //# sourceMappingURL=cms.js.map
