@@ -69,6 +69,11 @@
           <p>{{ (index $risk_levels .below_tree_line).advice }}</p>
         </div>
       </div>
+      <p>
+        Risk level definitions from
+        <a href="https://www.avalanche.org" target="_blank">avalanche.org</a>,
+        with permission.
+      </p>
     </div>
   {{ end }}
 {{ end }}
@@ -124,6 +129,10 @@
         {{ end }}
       </div>
     {{ end }}
+    <p>
+      Avalanche problem diagram{{ if (gt (len .) 0) }}s{{ end }} courtesy of
+      <a href="https://www.avalanche.org" target="_blank">avalanche.org</a>
+    </p>
   </div>
 {{ end }}
 
