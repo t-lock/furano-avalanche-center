@@ -7,10 +7,9 @@ collections:
   - name: post
     label: Post
     format: yaml-frontmatter
-    identifier_field: description
+    identifier_field: date_clone
     folder: content/posts
     create: true
-    slug: "{{year}}-{{month}}-{{day}}"
     editor:
       preview: false
     fields:
@@ -23,6 +22,9 @@ collections:
       - label: Publish Date
         name: date
         widget: datetime
+      - label: Date Clone
+        name: date_clone
+        widget: string
       - label: Overall Risk Level
         name: overall_risk
         widget: select
