@@ -1,16 +1,13 @@
 {{ define "main" }}
+{{ $risk_levels := .Site.Data.risk_levels }}
 
 <header>
-  <h1>Welcome to Furano Avalanche Center 🏔</h1>
+  <h1>Latest Post:</h1>
 </header>
 <main>
-  <ul>
-    {{ range.Pages }}
-    <li>
-      <a href="{{ .RelPermalink }}">{{ .Title }}</a>
-    </li>
-    {{ end }}
-  </ul>
+  {{ range first 1 .Site.RegularPages }}
+    {{ partial "full_post" . }}
+  {{end}}
 </main>
 
 {{ end }}

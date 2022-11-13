@@ -12,7 +12,7 @@ collections:
     create: true
     slug: "{{year}}-{{month}}-{{day}}"
     editor:
-      preview: true
+      preview: false
     fields:
       - name: type
         widget: hidden

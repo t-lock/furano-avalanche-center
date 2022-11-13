@@ -1,0 +1,127 @@
+{{ $risk_levels := .Site.Data.risk_levels }}
+
+
+<header style="border: 1px solid lightgray">
+  <h1>{{ .Date.Format "02 January, 2006" }}</h1>
+
+  {{ with .Params.overall_risk }}
+    <img
+      style="width: 100px; height: auto;"
+      src="{{ (index $risk_levels .).img }}"
+      alt="Overall risk level: {{ . }}"
+    />
+    <h2>Overall: {{ partial "risk_level" . }}</h2>
+  {{ end }}
+
+  {{ with .Params.post }}
+    <div style="padding: 10px; background: #eee">{{ . | markdownify }}</div>
+  {{ end }}
+</header>
+
+{{ with .Params.elevation_risk }}
+  {{ if and (.alpine) (.tree_line) (.below_tree_line) }}
+    <div style="border: 1px solid lightgray">
+      <div style="display:flex; align-items: center">
+        <h3 style="width: 150px">Alpine</h3>
+        <img
+          style="width: 100px; height: auto;"
+          src="{{ (index $risk_levels .alpine).img }}"
+          alt="Alpine risk level: {{ .alpine }}"
+        />
+        <figure style="width: 200px">
+          {{ partial "graphics/elevation_risk.svg" (dict "zone" "alp" "risk" .alpine) }}
+        </figure>
+        <div>
+          <p>{{ partial "risk_level" .alpine }}</p>
+          <p>{{ (index $risk_levels .alpine).advice }}</p>
+        </div>
+      </div>
+      <hr />
+      <div style="display:flex; align-items: center">
+        <h3 style="width: 150px">Tree Line</h3>
+        <img
+          style="width: 100px; height: auto;"
+          src="{{ (index $risk_levels .tree_line).img }}"
+          alt="Tree line risk level: {{ .tree_line }}"
+        />
+        <figure style="width: 200px">
+          {{ partial "graphics/elevation_risk.svg" (dict "zone" "trl" "risk" .tree_line) }}
+        </figure>
+        <div>
+          <p>{{ partial "risk_level" .tree_line }}</p>
+          <p>{{ (index $risk_levels .tree_line).advice }}</p>
+        </div>
+      </div>
+      <hr />
+      <div style="display:flex; align-items: center">
+        <h3 style="width: 150px">Below Tree Line</h3>
+        <img
+          style="width: 100px; height: auto;"
+          src="{{ (index $risk_levels .below_tree_line).img }}"
+          alt="Below tree line risk level: {{ .below_tree_level }}"
+        />
+        <figure style="width: 200px">
+          {{ partial "graphics/elevation_risk.svg" (dict "zone" "btl" "risk" .below_tree_line) }}
+        </figure>
+        <div>
+          <p>{{ partial "risk_level" .below_tree_line }}</p>
+          <p>{{ (index $risk_levels .below_tree_line).advice }}</p>
+        </div>
+      </div>
+    </div>
+  {{ end }}
+{{ end }}
+
+{{ with .Params.avalanche_problems }}
+  <div style="border: 1px solid lightgray">
+    {{ range $i, $node := . }}
+      {{ $imgpath := (index site.Data.avalanche_problems $node.problem).img }}
+
+      {{ if (gt $i 0) }}
+        <hr />
+      {{ end }}
+
+
+      <div>
+        <h3>Avalanche Problem #{{ add 1 $i }}: {{ $node.problem }}</h3>
+        <img src="{{ $imgpath }}" alt="{{ $node.problem }}" />
+        {{ with $node.description }}
+          <div style="padding: 10px; background: #eee">
+            <strong>Description</strong>
+            <p>{{ . }}</p>
+          </div>
+        {{ end }}
+        {{ with $node.trend }}
+          <div style="padding: 10px">
+            <strong>Trend</strong>
+            <p>{{ . }}</p>
+          </div>
+        {{ end }}
+        {{ with $node.rose }}
+          <div style="padding: 10px">
+            <strong>Dangerous Aspects</strong>
+            <p>[rose here]</p>
+          </div>
+        {{ end }}
+        {{ with $node.time }}
+          <div style="padding: 10px">
+            <strong>Time of Day</strong>
+            <p>{{ . }}</p>
+          </div>
+        {{ end }}
+        {{ with $node.likelihood }}
+          <div style="padding: 10px">
+            <strong>Likelihood</strong>
+            <p>[bar here]</p>
+          </div>
+        {{ end }}
+        {{ with $node.size }}
+          <div style="padding: 10px">
+            <strong>Size</strong>
+            <p>[bar here]</p>
+          </div>
+        {{ end }}
+      </div>
+    {{ end }}
+  </div>
+{{ end }}
