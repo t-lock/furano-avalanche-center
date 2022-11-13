@@ -85,14 +85,6 @@ collections:
             name: description
             widget: markdown
             hint: Why this specific avalanche problem is a current risk
-          - label: Trend
-            name: trend
-            widget: select
-            options:
-              - Increasing
-              - Decreasing
-              - Staying the same
-            required: false
           - label: Dangerous Aspects
             name: rose
             widget: rose
@@ -122,28 +114,6 @@ collections:
               a6: false
               a7: false
               a8: false
-          - label: Time of Day
-            name: time
-            widget: string
-            default: All Day
-          - label: Likelihood
-            name: likelihood
-            widget: select
-            options:
-              - Unlikely
-              - Possible
-              - Likely
-              - Very Likely
-              - Almost Certain
-          - label: Size
-            name: size
-            widget: select
-            options:
-              - "1"
-              - "2"
-              - "3"
-              - "4"
-              - "5"
       - label: "Screenshots / Photos"
         name: "screenshots"
         widget: "list"
