@@ -4,11 +4,11 @@ backend:
 media_folder: static/img
 public_folder: /img
 collections:
-  - name: forecast
-    label: Forecast
+  - name: post
+    label: Post
     format: yaml-frontmatter
     identifier_field: description
-    folder: content/forecasts
+    folder: content/posts
     create: true
     slug: "{{year}}-{{month}}-{{day}}"
     editor:
@@ -16,7 +16,7 @@ collections:
     fields:
       - name: type
         widget: hidden
-        default: forecasts
+        default: posts
       - name: draft
         widget: hidden
         default: false

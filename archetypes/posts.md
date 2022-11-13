@@ -1,6 +1,6 @@
 ---
 date: {{ .Date  }}
-type: forecasts
+type: posts
 post: "**Powder everywhere!**"
 draft: false
 ---

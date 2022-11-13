@@ -4,10 +4,10 @@
       href="{{ .RelPermalink }}"
       style="color: black; width: 150px; margin-right: 20px"
     >
-      {{ partial "graphics/logo-color.svg" . }}
+      {{ partial "graphics/logo.svg" . }}
     </a>
   {{ end }}
-  {{ with .Site.GetPage "/forecasts" }}
+  {{ with .Site.GetPage "/posts" }}
     <a href="{{ .RelPermalink }}">{{ .Title }}</a>
   {{ end }}
   {{ with .Site.GetPage "/about" }}

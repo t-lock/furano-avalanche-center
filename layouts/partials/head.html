@@ -4,9 +4,9 @@
     {{/*  Homepage  */}}
     {{ .Site.Title }}
 
-    {{ else if and (isset .Params "type") (eq .Type "forecasts") }}
-    {{/*  Forecasts  */}}
-    Avalanche forecast for {{ .Date.Format "02 Jan 2006" }} | {{ .Site.Title }}
+    {{ else if and (isset .Params "type") (eq .Type "posts") }}
+    {{/*  Posts  */}}
+    Avalanche condition observations for {{ .Date.Format "02 Jan 2006" }} | {{ .Site.Title }}
 
     {{ else }}
     {{/*  Pages  */}}
