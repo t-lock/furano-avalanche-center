@@ -6,9 +6,11 @@ CMS.registerWidget("rose", RoseControl, SimplePreview);
 
 CMS.registerEventListener({
   name: "preSave",
-  handler: (obj) => {
-    console.log(obj);
-    console.log(obj.entry.get("data"));
-    return obj.entry.get("data").set("date_clone", "new title");
+  handler: ({ entry }) => {
+    const dateString = entry
+      .get("data")
+      .get("date")
+      .toLocaleDateString("en-nz");
+    return entry.get("data").set("date_clone", dateString);
   },
 });

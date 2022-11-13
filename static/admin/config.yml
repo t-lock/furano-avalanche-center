@@ -19,9 +19,10 @@ collections:
       - name: draft
         widget: hidden
         default: false
-      - label: Publish Date
+      - label: Post Date
         name: date
         widget: datetime
+        hint: You can backdate or postdate the post if desired.
       - label: Title
         name: date_clone
         widget: hidden
