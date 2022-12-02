@@ -115,13 +115,15 @@
 
   {{ with .Params.screenshots }}
     {{ range . }}
-      <div class="card">
-        {{ with .intro }}{{ . }}{{ end }}
+      <div class="card screenshots">
+        {{ with .intro }}
+          <div>{{ . }}</div>
+        {{ end }}
         <img src="{{ .image }}" alt="Screenshot from {{ $date }}" />
         {{ with .caption }}
-          <p style="background: #eee">
+          <cite>
             {{ . }}
-          </p>
+          </cite>
         {{ end }}
       </div>
     {{ end }}

@@ -5,14 +5,18 @@
 
   <body>
     <div class="container">
-      {{ partial "nav.html" . }}
+      <div class="vertical-layout">
+        <div class="vertical-expand">
+          {{ partial "nav.html" . }}
 
 
-      <div class="bar"></div>
+          <div class="bar"></div>
 
-      {{ block "main" . }}{{ end }}
+          {{ block "main" . }}{{ end }}
+        </div>
 
-      {{ partial "footer.html" . }}
+        {{ partial "footer.html" . }}
+      </div>
     </div>
   </body>
 </html>
