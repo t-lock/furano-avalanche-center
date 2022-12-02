@@ -1,11 +1,12 @@
 <nav class="nav">
   {{ with .Site.GetPage "/" }}
-    <a
-      href="{{ .RelPermalink }}"
-      class="logo"
-    >
-      {{ partial "graphics/logo.svg" . }}
-    </a>
+      <a
+        class="logo"
+        href="{{ .RelPermalink }}"
+      >
+        {{ partial "graphics/logo.svg" . }}
+        <span>Furano Avalanche Center</span>
+      </a>
   {{ end }}
   {{ with .Site.GetPage "/posts" }}
     <a href="{{ .RelPermalink }}">{{ .Title }}</a>

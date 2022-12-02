@@ -1,4 +1,9 @@
 {{ $number := . }}
-{{ $data := index site.Data.risk_levels $number}}
-{{ $foreground := cond (or (eq "0" $number) (eq "2" $number)) "black" "white"}}
-<span style="color: {{$foreground}}; background: {{$data.color}}">{{ $number }} {{ $data.name }}</span>
+{{ $data := index site.Data.risk_levels $number }}
+{{ $foreground := cond (or (eq "0" $number) (eq "2" $number)) "black" "white" }}
+<span
+  class="rating-tag"
+  style="color: {{ $foreground }}; background: {{ $data.color }}"
+>
+  {{ $number }} {{ $data.name }}</span
+>

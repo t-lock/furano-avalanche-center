@@ -117,6 +117,7 @@
   :root {
     --bg: #f5f5f5;
     --text: #1e1e1e;
+    --light: #b1b1b1;
     --card: white;
     --border: #eeeeee;
     --primary: #278eff;
@@ -164,6 +165,10 @@
     }
   }
 
+  figure {
+    margin: 0;
+  }
+
   img {
     display: block;
     max-width: 100%;
@@ -194,6 +199,13 @@
     margin: var(--gap);
   }
 
+  cite {
+    color: var(--light);
+    text-align: center;
+    display: block;
+    font-size: 0.9em;
+  }
+
   .container {
     max-width: 800px;
     margin: 0 auto;
@@ -222,23 +234,39 @@
 
   .logo {
     color: var(--text);
-    width: 100px;
     margin-right: auto;
-  }
+    text-decoration: none;
+    font-size: 9.5px;
+    letter-spacing: -0.2px;
+    font-weight: bold;
 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
   .logo:hover,
   .logo:focus {
     color: var(--text);
     opacity: 0.85;
   }
+  .logo svg {
+    width: 100px;
+    margin-bottom: 2px;
+  }
 
   @media (min-width: 768px) {
     .logo {
+      font-size: 11.8px;
+    }
+    .logo svg {
       width: 125px;
     }
   }
   @media (min-width: 1200px) {
     .logo {
+      font-size: 14px;
+    }
+    .logo svg {
       width: 150px;
     }
   }
@@ -255,6 +283,7 @@
     border-radius: 4px;
     border: 1px solid var(--border);
     margin: 20px 0;
+    line-height: 1.5;
   }
   .card--top {
     margin-top: 0;
@@ -265,15 +294,55 @@
     margin-top: 0;
   }
 
+  .rating-badge {
+    width: 100%;
+    max-width: 100px;
+    height: auto;
+  }
+
+  .rating-tag {
+    padding: 4px 8px;
+    border-radius: 3px;
+    box-shadow: 0px 0px 1px 1px rgba(0, 0, 0, 0.1) inset;
+    white-space: nowrap;
+  }
+
+  .elevation-risk__row {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+  }
+  .elevation-risk__elevation {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .elevation-risk__elevation figure {
+    width: 100px;
+  }
+  .elevation-risk__elevation h3 {
+    margin: 0;
+  }
+  .elevation-risk__advice {
+    width: 100%;
+  }
+  @media (min-width: 600px) {
+    .elevation-risk__row {
+      flex-wrap: nowrap;
+    }
+    .elevation-risk__elevation {
+      width: 150px;
+    }
+    .elevation-risk__advice {
+      width: 280px;
+    }
+  }
+
   .screenshots {
     line-height: 1.5;
   }
   .screenshots img {
     margin: var(--gap) auto;
-  }
-  .screenshots cite {
-    opacity: 0.5;
-    text-align: center;
-    display: block;
   }
 </style>

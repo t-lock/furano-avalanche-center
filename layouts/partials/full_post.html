@@ -7,7 +7,7 @@
 
   {{ with .Params.overall_risk }}
     <img
-      style="width: 100px; height: auto;"
+      class="rating-badge"
       src="{{ (index $risk_levels .).img }}"
       alt="Overall risk level: {{ . }}"
     />
@@ -22,59 +22,67 @@
 <main>
   {{ with .Params.elevation_risk }}
     {{ if and (.alpine) (.tree_line) (.below_tree_line) }}
-      <div class="card">
-        <div style="display:flex; align-items: center">
-          <h3 style="width: 150px">Alpine</h3>
+      <div class="card elevation-risk">
+        <div class="elevation-risk__row">
+          <div class="elevation-risk__elevation">
+            <figure>
+              {{ partial "graphics/elevation_risk.svg" (dict "zone" "alp" "risk" .alpine) }}
+            </figure>
+            <h3>Alpine</h3>
+            <p>{{ partial "risk_level" .alpine }}</p>
+          </div>
           <img
-            style="width: 100px; height: auto;"
+            class="rating-badge"
             src="{{ (index $risk_levels .alpine).img }}"
             alt="Alpine risk level: {{ .alpine }}"
           />
-          <figure style="width: 200px">
-            {{ partial "graphics/elevation_risk.svg" (dict "zone" "alp" "risk" .alpine) }}
-          </figure>
-          <div>
-            <p>{{ partial "risk_level" .alpine }}</p>
+          <div class="elevation-risk__advice">
             <p>{{ (index $risk_levels .alpine).advice }}</p>
           </div>
         </div>
         <hr />
-        <div style="display:flex; align-items: center">
-          <h3 style="width: 150px">Tree Line</h3>
+        <div class="elevation-risk__row">
+          <div class="elevation-risk__elevation">
+            <figure>
+              {{ partial "graphics/elevation_risk.svg" (dict "zone" "trl" "risk" .tree_line) }}
+            </figure>
+            <h3>Tree Line</h3>
+            <p>{{ partial "risk_level" .tree_line }}</p>
+          </div>
           <img
-            style="width: 100px; height: auto;"
+            class="rating-badge"
             src="{{ (index $risk_levels .tree_line).img }}"
             alt="Tree line risk level: {{ .tree_line }}"
           />
-          <figure style="width: 200px">
-            {{ partial "graphics/elevation_risk.svg" (dict "zone" "trl" "risk" .tree_line) }}
-          </figure>
-          <div>
-            <p>{{ partial "risk_level" .tree_line }}</p>
+          <div class="elevation-risk__advice">
             <p>{{ (index $risk_levels .tree_line).advice }}</p>
           </div>
         </div>
         <hr />
-        <div style="display:flex; align-items: center">
-          <h3 style="width: 150px">Below Tree Line</h3>
+        <div class="elevation-risk__row">
+          <div class="elevation-risk__elevation">
+            <figure>
+              {{ partial "graphics/elevation_risk.svg" (dict "zone" "btl" "risk" .below_tree_line) }}
+            </figure>
+            <h3>Below Tree Line</h3>
+            <p>{{ partial "risk_level" .below_tree_line }}</p>
+          </div>
           <img
-            style="width: 100px; height: auto;"
+            class="rating-badge"
             src="{{ (index $risk_levels .below_tree_line).img }}"
             alt="Below tree line risk level: {{ .below_tree_level }}"
           />
-          <figure style="width: 200px">
-            {{ partial "graphics/elevation_risk.svg" (dict "zone" "btl" "risk" .below_tree_line) }}
-          </figure>
-          <div>
-            <p>{{ partial "risk_level" .below_tree_line }}</p>
+          <div class="elevation-risk__advice">
             <p>{{ (index $risk_levels .below_tree_line).advice }}</p>
           </div>
         </div>
-        <p>
-          Risk level definitions from
-          <a href="https://www.avalanche.org" target="_blank">avalanche.org</a>,
-          with permission.
-        </p>
+        <cite>
+          <p>
+            Risk level definitions from
+            <a href="https://www.avalanche.org" target="_blank">avalanche.org</a
+            >, with permission.
+          </p>
+        </cite>
       </div>
     {{ end }}
   {{ end }}
@@ -106,10 +114,12 @@
           {{ end }}
         </div>
       {{ end }}
-      <p>
-        Avalanche problem diagram{{ if (gt (len .) 0) }}s{{ end }} courtesy of
-        <a href="https://www.avalanche.org" target="_blank">avalanche.org</a>
-      </p>
+      <cite>
+        <p>
+          Avalanche problem diagram{{ if (gt (len .) 0) }}s{{ end }} courtesy of
+          <a href="https://www.avalanche.org" target="_blank">avalanche.org</a>
+        </p>
+      </cite>
     </div>
   {{ end }}
 
