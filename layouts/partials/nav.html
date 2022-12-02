@@ -14,6 +14,10 @@
     <span> | </span>
     <a href="{{ .RelPermalink }}">{{ .Title }}</a>
   {{ end }}
+  {{ with .Site.GetPage "/contributing" }}
+    <span> | </span>
+    <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+  {{ end }}
   {{/* ! add donations page later
     {{ with .Site.GetPage "/support-us" }}
       <span> | </span>

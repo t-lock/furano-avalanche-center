@@ -40,7 +40,13 @@
     padding: var(--gap) 0;
     background-color: var(--bg);
     color: var(--text);
-    font-size: 17px;
+    font-size: 16px;
+  }
+
+  @media (min-width: 768px) {
+    body {
+      font-size: 17px;
+    }
   }
 
   img {
@@ -61,6 +67,11 @@
     margin: 6px 0;
   }
 
+  p,
+  ul {
+    line-height: 1.5;
+  }
+
   .container {
     max-width: 800px;
     margin: 0 auto;
@@ -78,7 +89,7 @@
 
   .logo {
     color: var(--text);
-    width: 150px;
+    width: 100px;
     margin-right: auto;
   }
 
@@ -86,6 +97,17 @@
   .logo:focus {
     color: var(--text);
     opacity: 0.85;
+  }
+
+  @media (min-width: 768px) {
+    .logo {
+      width: 125px;
+    }
+  }
+  @media (min-width: 1200px) {
+    .logo {
+      width: 150px;
+    }
   }
 
   .bar {
@@ -108,7 +130,7 @@
     border-top-right-radius: 0;
   }
 
-  .card *:first-child {
+  .card > *:first-child {
     margin-top: 0;
   }
 
