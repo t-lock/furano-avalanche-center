@@ -97,18 +97,20 @@
         {{ end }}
 
 
-        <div>
-          <h3>Avalanche Problem #{{ add 1 $i }}: {{ $node.problem }}</h3>
-          <img src="{{ $imgpath }}" alt="{{ $node.problem }}" />
-          {{ with $node.description }}
-            <div style="padding: 10px; background: #eee">
-              <strong>Description</strong>
-              <p>{{ . }}</p>
+        <div class="problem">
+          <div class="problem__header">
+            <img src="{{ $imgpath }}" alt="{{ $node.problem }}" />
+            <div>
+              <span>Avalanche Problem #{{ add 1 $i }}:</span>
+              <h3>{{ $node.problem }}</h3>
             </div>
+          </div>
+          {{ with $node.description }}
+            <p>{{ . }}</p>
           {{ end }}
           {{ with $node.rose }}
-            <div style="padding: 10px">
-              <strong>Dangerous Aspects</strong>
+            <div class="problem__rose">
+              <strong>Dangerous Aspects:</strong>
               {{ partial "graphics/rose.svg" . }}
             </div>
           {{ end }}
