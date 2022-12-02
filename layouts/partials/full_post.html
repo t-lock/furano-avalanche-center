@@ -106,7 +106,7 @@
             </div>
           </div>
           {{ with $node.description }}
-            <p>{{ . }}</p>
+            <p>{{ . | markdownify }}</p>
           {{ end }}
           {{ with $node.rose }}
             <div class="problem__rose">
@@ -129,7 +129,7 @@
     {{ range . }}
       <div class="card screenshots">
         {{ with .intro }}
-          <div>{{ . }}</div>
+          <div>{{ . | markdownify }}</div>
         {{ end }}
         <img src="{{ .image }}" alt="Screenshot from {{ $date }}" />
         {{ with .caption }}
