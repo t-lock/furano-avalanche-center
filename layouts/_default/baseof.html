@@ -4,10 +4,15 @@
 
 
   <body>
-    {{ partial "nav.html" . }}
+    <div class="container">
+      {{ partial "nav.html" . }}
+    </div>
 
-    {{ block "main" . }}{{ end }}
+    <div class="bar"></div>
 
-    {{ partial "footer.html" . }}
+    <div class="container">
+      {{ block "main" . }}{{ end }}
+      {{ partial "footer.html" . }}
+    </div>
   </body>
 </html>

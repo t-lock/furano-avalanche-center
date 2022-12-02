@@ -1,8 +1,8 @@
-<nav style="display:flex; align-items: baseline; margin-bottom: 20px;">
+<nav class="nav">
   {{ with .Site.GetPage "/" }}
     <a
       href="{{ .RelPermalink }}"
-      style="color: black; width: 150px; margin-right: 20px"
+      class="logo"
     >
       {{ partial "graphics/logo.svg" . }}
     </a>

@@ -2,7 +2,7 @@
 {{ $date := .Date.Format "02 January, 2006" }}
 
 
-<header style="border: 1px solid lightgray">
+<header class="card">
   <h1>{{ $date }}</h1>
 
   {{ with .Params.overall_risk }}
@@ -15,108 +15,108 @@
   {{ end }}
 
   {{ with .Params.post }}
-    <div style="padding: 10px; background: #eee">{{ . | markdownify }}</div>
+    <div>{{ . | markdownify }}</div>
   {{ end }}
 </header>
 
-{{ with .Params.elevation_risk }}
-  {{ if and (.alpine) (.tree_line) (.below_tree_line) }}
-    <div style="border: 1px solid lightgray">
-      <div style="display:flex; align-items: center">
-        <h3 style="width: 150px">Alpine</h3>
-        <img
-          style="width: 100px; height: auto;"
-          src="{{ (index $risk_levels .alpine).img }}"
-          alt="Alpine risk level: {{ .alpine }}"
-        />
-        <figure style="width: 200px">
-          {{ partial "graphics/elevation_risk.svg" (dict "zone" "alp" "risk" .alpine) }}
-        </figure>
-        <div>
-          <p>{{ partial "risk_level" .alpine }}</p>
-          <p>{{ (index $risk_levels .alpine).advice }}</p>
+<main>
+  {{ with .Params.elevation_risk }}
+    {{ if and (.alpine) (.tree_line) (.below_tree_line) }}
+      <div class="card">
+        <div style="display:flex; align-items: center">
+          <h3 style="width: 150px">Alpine</h3>
+          <img
+            style="width: 100px; height: auto;"
+            src="{{ (index $risk_levels .alpine).img }}"
+            alt="Alpine risk level: {{ .alpine }}"
+          />
+          <figure style="width: 200px">
+            {{ partial "graphics/elevation_risk.svg" (dict "zone" "alp" "risk" .alpine) }}
+          </figure>
+          <div>
+            <p>{{ partial "risk_level" .alpine }}</p>
+            <p>{{ (index $risk_levels .alpine).advice }}</p>
+          </div>
         </div>
-      </div>
-      <hr />
-      <div style="display:flex; align-items: center">
-        <h3 style="width: 150px">Tree Line</h3>
-        <img
-          style="width: 100px; height: auto;"
-          src="{{ (index $risk_levels .tree_line).img }}"
-          alt="Tree line risk level: {{ .tree_line }}"
-        />
-        <figure style="width: 200px">
-          {{ partial "graphics/elevation_risk.svg" (dict "zone" "trl" "risk" .tree_line) }}
-        </figure>
-        <div>
-          <p>{{ partial "risk_level" .tree_line }}</p>
-          <p>{{ (index $risk_levels .tree_line).advice }}</p>
+        <hr />
+        <div style="display:flex; align-items: center">
+          <h3 style="width: 150px">Tree Line</h3>
+          <img
+            style="width: 100px; height: auto;"
+            src="{{ (index $risk_levels .tree_line).img }}"
+            alt="Tree line risk level: {{ .tree_line }}"
+          />
+          <figure style="width: 200px">
+            {{ partial "graphics/elevation_risk.svg" (dict "zone" "trl" "risk" .tree_line) }}
+          </figure>
+          <div>
+            <p>{{ partial "risk_level" .tree_line }}</p>
+            <p>{{ (index $risk_levels .tree_line).advice }}</p>
+          </div>
         </div>
-      </div>
-      <hr />
-      <div style="display:flex; align-items: center">
-        <h3 style="width: 150px">Below Tree Line</h3>
-        <img
-          style="width: 100px; height: auto;"
-          src="{{ (index $risk_levels .below_tree_line).img }}"
-          alt="Below tree line risk level: {{ .below_tree_level }}"
-        />
-        <figure style="width: 200px">
-          {{ partial "graphics/elevation_risk.svg" (dict "zone" "btl" "risk" .below_tree_line) }}
-        </figure>
-        <div>
-          <p>{{ partial "risk_level" .below_tree_line }}</p>
-          <p>{{ (index $risk_levels .below_tree_line).advice }}</p>
+        <hr />
+        <div style="display:flex; align-items: center">
+          <h3 style="width: 150px">Below Tree Line</h3>
+          <img
+            style="width: 100px; height: auto;"
+            src="{{ (index $risk_levels .below_tree_line).img }}"
+            alt="Below tree line risk level: {{ .below_tree_level }}"
+          />
+          <figure style="width: 200px">
+            {{ partial "graphics/elevation_risk.svg" (dict "zone" "btl" "risk" .below_tree_line) }}
+          </figure>
+          <div>
+            <p>{{ partial "risk_level" .below_tree_line }}</p>
+            <p>{{ (index $risk_levels .below_tree_line).advice }}</p>
+          </div>
         </div>
+        <p>
+          Risk level definitions from
+          <a href="https://www.avalanche.org" target="_blank">avalanche.org</a>,
+          with permission.
+        </p>
       </div>
+    {{ end }}
+  {{ end }}
+
+  {{ with .Params.avalanche_problems }}
+    <div class="card">
+      {{ range $i, $node := . }}
+        {{ $imgpath := (index site.Data.avalanche_problems $node.problem).img }}
+
+        {{ if (gt $i 0) }}
+          <hr />
+        {{ end }}
+
+
+        <div>
+          <h3>Avalanche Problem #{{ add 1 $i }}: {{ $node.problem }}</h3>
+          <img src="{{ $imgpath }}" alt="{{ $node.problem }}" />
+          {{ with $node.description }}
+            <div style="padding: 10px; background: #eee">
+              <strong>Description</strong>
+              <p>{{ . }}</p>
+            </div>
+          {{ end }}
+          {{ with $node.rose }}
+            <div style="padding: 10px">
+              <strong>Dangerous Aspects</strong>
+              {{ partial "graphics/rose.svg" . }}
+            </div>
+          {{ end }}
+        </div>
+      {{ end }}
       <p>
-        Risk level definitions from
-        <a href="https://www.avalanche.org" target="_blank">avalanche.org</a>,
-        with permission.
+        Avalanche problem diagram{{ if (gt (len .) 0) }}s{{ end }} courtesy of
+        <a href="https://www.avalanche.org" target="_blank">avalanche.org</a>
       </p>
     </div>
   {{ end }}
-{{ end }}
 
-{{ with .Params.avalanche_problems }}
-  <div style="border: 1px solid lightgray">
-    {{ range $i, $node := . }}
-      {{ $imgpath := (index site.Data.avalanche_problems $node.problem).img }}
-
-      {{ if (gt $i 0) }}
-        <hr />
-      {{ end }}
-
-
-      <div>
-        <h3>Avalanche Problem #{{ add 1 $i }}: {{ $node.problem }}</h3>
-        <img src="{{ $imgpath }}" alt="{{ $node.problem }}" />
-        {{ with $node.description }}
-          <div style="padding: 10px; background: #eee">
-            <strong>Description</strong>
-            <p>{{ . }}</p>
-          </div>
-        {{ end }}
-        {{ with $node.rose }}
-          <div style="padding: 10px">
-            <strong>Dangerous Aspects</strong>
-            {{ partial "graphics/rose.svg" . }}
-          </div>
-        {{ end }}
-      </div>
-    {{ end }}
-    <p>
-      Avalanche problem diagram{{ if (gt (len .) 0) }}s{{ end }} courtesy of
-      <a href="https://www.avalanche.org" target="_blank">avalanche.org</a>
-    </p>
-  </div>
-{{ end }}
-
-{{ with .Params.screenshots }}
-  <div style="border: 1px solid lightgray">
+  {{ with .Params.screenshots }}
     {{ range . }}
-      {{ with .intro }}{{ . }}{{ end }}
-      <div>
+      <div class="card">
+        {{ with .intro }}{{ . }}{{ end }}
         <img src="{{ .image }}" alt="Screenshot from {{ $date }}" />
         {{ with .caption }}
           <p style="background: #eee">
@@ -125,5 +125,5 @@
         {{ end }}
       </div>
     {{ end }}
-  </div>
-{{ end }}
+  {{ end }}
+</main>
