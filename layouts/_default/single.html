@@ -1,11 +1,11 @@
 {{ define "main" }}
+  <div class="card card--top">
+    {{ with .Title }}
+      <header>
+        <h1>{{ . }}</h1>
+      </header>
+    {{ end }}
 
-{{ with .Title }}
-<header>
-  <h1>{{ . }}</h1>
-</header>
-{{ end }}
-
-{{ with .Content }}{{ . }}{{ end }}
-
+    {{ with .Content }}{{ . }}{{ end }}
+  </div>
 {{ end }}

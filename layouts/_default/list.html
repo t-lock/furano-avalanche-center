@@ -1,26 +1,20 @@
 {{ define "main" }}
-
-{{ with .Title }}
-<header>
-  <h1>{{ . }}</h1>
-</header>
-{{ end }}
-
-<article>
-  {{ with .Content }}{{ . }}{{ end }}
-  <ul>
-    {{ range.Pages }}
-    {{ if .Title}}
-    <li>
-      <a href="{{ .RelPermalink }}">{{ .Title }}</a>
-    </li>
-    {{ else }}
-    <li>
-      <a href="{{ .RelPermalink }}">{{ .Date.Format "02 January, 2006" }}</a>
-    </li>
-    {{ end }}}}
+  <div class="card card--top">
+    {{ with .Title }}
+      <header>
+        <h1>{{ . }}</h1>
+      </header>
     {{ end }}
-  </ul>
-</article>
 
+    {{ .Content }}
+    <ul>
+      {{ range.Pages }}
+        <li>
+          <a href="{{ .RelPermalink }}">
+            {{ .Date.Format "02 January, 2006" }}
+          </a>
+        </li>
+      {{ end }}
+    </ul>
+  </div>
 {{ end }}

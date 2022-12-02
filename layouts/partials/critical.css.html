@@ -12,23 +12,35 @@
       var(--primary) 11.2%,
       var(--secondary) 100.2%
     );
-    --shadow: 0px 1px 2px 0px rgba(18, 0, 180, 0.474);
+    --gap: 14px;
   }
 
-  /*  @media (prefers-color-scheme: dark) {
+  /* @media (prefers-color-scheme: dark) {
     :root {
       --bg: #1d1e20;
       --text: #dadadb;
       --card: #2e2e33;
       --border: #333333;
     }
-  }  */
+  } */
+
+  @media (min-width: 768px) {
+    :root {
+      --gap: 20px;
+    }
+  }
+  @media (min-width: 1200px) {
+    :root {
+      --gap: 30px;
+    }
+  }
 
   body {
     margin: 0;
-    padding: 30px 0;
+    padding: var(--gap) 0;
     background-color: var(--bg);
     color: var(--text);
+    font-size: 17px;
   }
 
   img {
@@ -45,10 +57,14 @@
     color: var(--primary-alt);
   }
 
+  li {
+    margin: 6px 0;
+  }
+
   .container {
     max-width: 800px;
     margin: 0 auto;
-    padding: 0 30px;
+    padding: 0 var(--gap);
   }
 
   .nav {
@@ -75,19 +91,21 @@
   .bar {
     background-image: var(--gradient);
     height: 3px;
-    opacity: 0.9;
-    max-width: 900px;
-    margin: 10px auto;
-    box-shadow: var(--shadow);
+    margin-top: 10px;
   }
 
   .card {
     background-color: var(--card);
-    padding: 20px;
+    padding: var(--gap);
     border-radius: 4px;
     border: 1px solid var(--border);
     margin: 20px 0;
-    /*  box-shadow: var(--shadow);  */
+  }
+
+  .card--top {
+    margin-top: 0;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
   }
 
   .card *:first-child {
