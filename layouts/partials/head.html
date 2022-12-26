@@ -1,40 +1,70 @@
 <head>
   <title>
     {{ if .IsHome }}
-    {{/*  Homepage  */}}
-    {{ .Site.Title }}
-
+      {{/* Homepage */}}
+      {{ .Site.Title }}
     {{ else if and (isset .Params "type") (eq .Type "posts") }}
-    {{/*  Posts  */}}
-    Avalanche condition observations for {{ .Date.Format "02 Jan 2006" }} | {{ .Site.Title }}
-
+      {{/* Posts */}}
+      Avalanche condition observations for {{ .Date.Format "02 Jan 2006" }} |
+      {{ .Site.Title }}
     {{ else }}
-    {{/*  Pages  */}}
-    {{ .Title }} | {{ .Site.Title }}
-
+      {{/* Pages */}}
+      {{ .Title }} |
+      {{ .Site.Title }}
     {{ end }}
   </title>
   <link rel="canonical" href="{{ .Site.BaseURL }}" />
 
-  <link rel="icon"
-    href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🏔</text></svg>">
+  <link
+    rel="icon"
+    href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🏔</text></svg>"
+  />
 
-  <meta name="description" content="{{ with .Params.description }}{{ . }}{{ else }}{{ .Summary }}{{ end }}" />
+  <meta
+    name="description"
+    content="{{ with .Params.description }}
+      {{ . }}
+    {{ else }}
+      {{ .Summary }}
+    {{ end }}"
+  />
   {{ if isset .Params "tags" }}
-  <meta name="keywords" content="{{ with
-    .Params.tags }}{{ delimit . ", " }}{{ end }}"> {{ end }}
+    <meta
+      name="keywords"
+      content="{{ with
+        .Params.tags
+      }}
+        {{ delimit . ", " }}
+      {{ end }}"
+    />
+  {{ end }}
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="robots" content="index, follow" />
   <meta charset="utf-8" />
 
-  {{/*  google verification  */}}
-  <meta name="google-site-verification" content="8i2wBzJKx66wAVn92nu1_hu9BO6UDX8B9PxtOgqLCKE" />
-
-  {{/*  critical inline styles  */}}
+  {{/* critical inline styles */}}
   {{ partial "critical.css.html" . }}
 
-  {{/*  turbolinks  */}}
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/turbolinks/5.2.0/turbolinks.js"
+  {{/* turbolinks */}}
+  <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/turbolinks/5.2.0/turbolinks.js"
     integrity="sha512-G3jAqT2eM4MMkLMyQR5YBhvN5/Da3IG6kqgYqU9zlIH4+2a+GuMdLb5Kpxy6ItMdCfgaKlo2XFhI0dHtMJjoRw=="
-    crossorigin="anonymous" referrerpolicy="no-referrer" defer></script>
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+    defer
+  ></script>
+
+  {{/* Google tag (gtag.js) */}}
+  <script
+    async
+    src="https://www.googletagmanager.com/gtag/js?id=G-4426J35B71"
+  ></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag("js", new Date());
+    gtag("config", "G-4426J35B71");
+  </script>
 </head>
