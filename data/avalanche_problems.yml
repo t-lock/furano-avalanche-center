@@ -3,7 +3,7 @@ Dry Loose:
   img: "/img/problems/DryLoose.png"
 
 Storm Slab:
-  description: "Storm Slab avalanches are the release of a cohesive layer (a slab) of new snow that breaks within new snow or on the old snow surface. Storm-slabs typically last between a few hours and few days (following snowfall). Storm-slabs that form over a persistent weak layer (surface hoar, depth hoar, or near-surface facets) may be termed Persistent Slabs or may develop into Persistent Slabs."
+  description: "Storm Slab avalanches are the release of a cohesive layer (a slab) of new snow that breaks within new snow or on the old snow surface. Storm-slabs typically last between a few hours and a few days (following snowfall). Storm-slabs that form over a persistent weak layer (surface hoar, depth hoar, or near-surface facets) may be termed Persistent Slabs or may develop into Persistent Slabs."
   img: "/img/problems/StormSlab.jpg"
 
 Wind Slab:
@@ -31,5 +31,5 @@ Cornice Fall:
   img: "/img/problems/Cornice.jpg"
 
 Glide Avalanches:
-  description: "Glide avalanches are the release of the entire snow cover as a result of gliding over the ground. Glide avalanches can be composed of wet, moist, or almost entirely dry snow. They typically occur in very specific paths, where the slope is steep enough and the ground surface is relatively smooth. The are often proceeded by full depth cracks (glide cracks), though the time between the appearance of a crack and an avalanche can vary between seconds and months. Glide avalanches are unlikely to be triggered by a person, are nearly impossible to forecast, and thus pose a hazard that is extremely difficult to manage."
+  description: "Glide avalanches are the release of the entire snow cover as a result of gliding over the ground. Glide avalanches can be composed of wet, moist, or almost entirely dry snow. They typically occur in very specific paths, where the slope is steep enough and the ground surface is relatively smooth. They are often preceded by full depth cracks (glide cracks), though the time between the appearance of a crack and an avalanche can vary between seconds and months. Glide avalanches are unlikely to be triggered by a person, are nearly impossible to forecast, and thus pose a hazard that is extremely difficult to manage."
   img: "/img/problems/Glide.jpg"
