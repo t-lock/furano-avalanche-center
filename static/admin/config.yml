@@ -84,7 +84,7 @@ collections:
               - Wet Loose
               - Wet Slab
               - Cornice Fall
-              - Glide
+              - Glide Avalanches
           - label: Description
             name: description
             widget: markdown
