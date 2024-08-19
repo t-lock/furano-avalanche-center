@@ -1,4 +1,4 @@
-# (Furano Avalanche Center)[https://furanoavalanche.org]
+# [Furano Avalanche Center](https://furanoavalanche.org)
 
 Furano is a town in the center of Hokkaido, the northernmost prefecture of Japan. It is situated next to Daisetsuzan, the largest national park in Japan, and sandwiched between two mountain ranges that see epic quantities of some of the best snow on earth. 
 
